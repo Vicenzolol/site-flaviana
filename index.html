@@ -1,0 +1,2425 @@
+﻿<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="utf-8">
+  <script>
+    /* Carimba o tema ANTES da primeira pintura - sem isso o reload no modo escuro
+       pisca branco. O padrao e sempre claro: so entra no escuro quem escolheu. */
+    (function () {
+      var h = document.documentElement;
+      h.classList.add("js");
+      try {
+        if (localStorage.getItem("fm_tema") === "escuro") h.setAttribute("data-theme", "dark");
+      } catch (e) { /* localStorage bloqueado - segue no claro */ }
+    })();
+  </script>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- ==========================================================================
+     GOOGLE ANALYTICS (GA4) - desativado ate ter o ID de mensuracao.
+     Quando criar a propriedade em analytics.google.com, troque G-XXXXXXXXXX
+     (nas DUAS linhas abaixo) pelo ID real e remova este comentario de aviso.
+     Sem o ID real o script nem carrega de verdade - nao gera erro, so nao mede nada.
+     ========================================================================== -->
+  <!--
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'G-XXXXXXXXXX');
+  </script>
+  -->
+
+  <!-- ==========================================================================
+     !!! TROCAR ANTES DE PUBLICAR !!!
+     Todo endereco absoluto abaixo usa o placeholder  https://flaviana-marafoni.vercel.app
+     Assim que o dominio existir, faca um FIND/REPLACE de  flaviana-marafoni.vercel.app
+     por o dominio real NESTES QUATRO ARQUIVOS:
+        index.html · robots.txt · sitemap.xml · img/favicon_io/site.webmanifest
+     Enquanto for placeholder o canonical aponta pro nada e o Google nao indexa.
+     Passo a passo completo em docs/seo-checklist.md
+     ========================================================================== -->
+  <link rel="canonical" href="https://flaviana-marafoni.vercel.app/">
+
+  <title>Flaviana Marafoni, Influenciadora Digital em Marataízes/ES</title>
+  <!-- ~155 caracteres de proposito: acima disso o Google corta no "..." e a
+       chamada de acao ("peca seu orcamento") morre no meio da frase. -->
+  <meta name="description"
+    content="Influenciadora digital em Marataízes/ES. Reels e Stories com venda provada no cupom para casa e decoração, beleza e gastronomia. +100 marcas atendidas.">
+
+  <!-- Deixa o Google usar imagem grande, trecho longo e preview de video no resultado. -->
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+  <meta name="googlebot" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+  <meta name="author" content="Flaviana Marafoni">
+
+  <!-- Cor unica de proposito. Este site NAO segue o prefers-color-scheme: ele
+       abre sempre no claro e o escuro e opt-in pelo botao (regra que ja estava
+       no CSS e no script inline la em cima). Variar o theme-color pelo tema do
+       sistema pintaria a barra do navegador de preto com a pagina branca. Pelo
+       mesmo motivo nao ha <meta name="color-scheme">: ele deixaria a barra de
+       rolagem e os controles escuros num site claro. -->
+  <meta name="theme-color" content="#e6e4de">
+  <meta name="format-detection" content="telephone=no">
+
+  <!-- ---- SEO local: coordenadas de Marataizes/ES ----
+     Nao sao sinal forte pro Google, mas o Bing e varios agregadores ainda leem. -->
+  <meta name="geo.region" content="BR-ES">
+  <meta name="geo.placename" content="Marataízes, Espírito Santo">
+  <meta name="geo.position" content="-21.043300;-40.824400">
+  <meta name="ICBM" content="-21.043300, -40.824400">
+
+  <!-- ---- Open Graph (WhatsApp, Facebook, Instagram, LinkedIn) ---- -->
+  <meta property="og:type" content="profile">
+  <meta property="og:locale" content="pt_BR">
+  <meta property="og:site_name" content="Flaviana Marafoni">
+  <meta property="og:url" content="https://flaviana-marafoni.vercel.app/">
+  <meta property="og:title" content="Flaviana Marafoni, Influenciadora Digital em Marataízes/ES">
+  <meta property="og:description"
+    content="5 milhões de alcance por mês e +100 marcas atendidas. Reels e Stories com venda rastreada por cupom em Marataízes e no litoral sul do ES.">
+  <meta property="og:image" content="https://flaviana-marafoni.vercel.app/img/og.jpg">
+  <meta property="og:image:secure_url" content="https://flaviana-marafoni.vercel.app/img/og.jpg">
+  <meta property="og:image:type" content="image/jpeg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Flaviana Marafoni, influenciadora digital em Marataízes/ES">
+  <meta property="profile:first_name" content="Flaviana">
+  <meta property="profile:last_name" content="Marafoni">
+  <meta property="profile:gender" content="female">
+
+  <!-- ---- Twitter / X ---- -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Flaviana Marafoni, Influenciadora Digital em Marataízes/ES">
+  <meta name="twitter:description"
+    content="5 milhões de alcance por mês e +100 marcas atendidas. Reels e Stories com venda rastreada por cupom.">
+  <meta name="twitter:image" content="https://flaviana-marafoni.vercel.app/img/og.jpg">
+  <meta name="twitter:image:alt" content="Flaviana Marafoni, influenciadora digital em Marataízes/ES">
+
+  <!-- ---- Favicon / PWA (gerados a partir do retrato dela) ---- -->
+  <link rel="icon" href="img/favicon_io/favicon.ico" sizes="32x32">
+  <link rel="icon" type="image/png" sizes="32x32" href="img/favicon_io/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="img/favicon_io/favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="img/favicon_io/apple-touch-icon.png">
+  <link rel="manifest" href="img/favicon_io/site.webmanifest">
+  <meta name="apple-mobile-web-app-title" content="Flaviana Marafoni">
+  <meta name="application-name" content="Flaviana Marafoni">
+
+  <!-- ---- Performance: o retrato do hero e o LCP, entao ele vem antes de tudo ---- -->
+  <link rel="preload" as="image" href="img/flaviana-720.webp"
+    imagesrcset="img/flaviana-480.webp 480w, img/flaviana-720.webp 720w, img/flaviana-1024.webp 1024w"
+    imagesizes="(max-width:900px) 45vw, 380px" fetchpriority="high">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <!-- As capas dos Reels vem do YouTube; o handshake adiantado economiza ~200ms. -->
+  <link rel="preconnect" href="https://i.ytimg.com" crossorigin>
+  <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
+  <!-- Crimson Pro precisa do eixo italico (ital,wght): as headlines usam <em> em italico real.
+     Sem o eixo o browser sintetiza um obliquo falso e fica pior que o roman. -->
+  <link
+    href="https://fonts.googleapis.com/css2?family=Azeret+Mono:wght@400;500&family=Crimson+Pro:ital,wght@0,200;0,300;1,200;1,300&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="styles/styles.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.css">
+  <noscript>
+    <style>
+      .intro,
+      .theme-toggle,
+      .footer__clock {
+        display: none
+      }
+
+      [data-stagger],
+      [data-reveal] {
+        opacity: 1 !important;
+        transform: none !important
+      }
+    </style>
+  </noscript>
+
+  <!-- ==========================================================================
+     DADOS ESTRUTURADOS (JSON-LD, schema.org)
+     E o que faz o Google entender QUEM ela e, O QUE vende, POR QUANTO e ONDE
+     atende - e o que habilita o painel de conhecimento e o rich result de FAQ.
+     Um unico @graph com tudo cruzado por @id, do jeito que o Google prefere.
+     Valide em: https://search.google.com/test/rich-results
+     ========================================================================== -->
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "@id": "https://flaviana-marafoni.vercel.app/#website",
+      "url": "https://flaviana-marafoni.vercel.app/",
+      "name": "Flaviana Marafoni, Influenciadora Digital",
+      "alternateName": "Flaviana Marafoni Creator",
+      "description": "Portfólio e mídia kit de Flaviana Marafoni, influenciadora digital e creator em Marataízes, litoral sul do Espírito Santo.",
+      "inLanguage": "pt-BR",
+      "publisher": { "@id": "https://flaviana-marafoni.vercel.app/#flaviana" }
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://flaviana-marafoni.vercel.app/#webpage",
+      "url": "https://flaviana-marafoni.vercel.app/",
+      "name": "Flaviana Marafoni, Influenciadora Digital em Marataízes/ES",
+      "description": "Influenciadora digital e creator em Marataízes/ES. Reels e Stories com venda provada no cupom. +100 marcas atendidas e 5 milhões de alcance por mês.",
+      "isPartOf": { "@id": "https://flaviana-marafoni.vercel.app/#website" },
+      "about": { "@id": "https://flaviana-marafoni.vercel.app/#flaviana" },
+      "primaryImageOfPage": { "@id": "https://flaviana-marafoni.vercel.app/#retrato" },
+      "inLanguage": "pt-BR",
+      "breadcrumb": { "@id": "https://flaviana-marafoni.vercel.app/#breadcrumb" }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://flaviana-marafoni.vercel.app/#breadcrumb",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Início",        "item": "https://flaviana-marafoni.vercel.app/" },
+        { "@type": "ListItem", "position": 2, "name": "Sobre",         "item": "https://flaviana-marafoni.vercel.app/#sobre" },
+        { "@type": "ListItem", "position": 3, "name": "Conteúdo",      "item": "https://flaviana-marafoni.vercel.app/#conteudos" },
+        { "@type": "ListItem", "position": 4, "name": "Investimento",  "item": "https://flaviana-marafoni.vercel.app/#investimento" },
+        { "@type": "ListItem", "position": 5, "name": "Resultados",    "item": "https://flaviana-marafoni.vercel.app/#cases" }
+      ]
+    },
+    {
+      "@type": "ImageObject",
+      "@id": "https://flaviana-marafoni.vercel.app/#retrato",
+      "url": "https://flaviana-marafoni.vercel.app/img/og.jpg",
+      "contentUrl": "https://flaviana-marafoni.vercel.app/img/og.jpg",
+      "width": 1200,
+      "height": 630,
+      "caption": "Flaviana Marafoni, influenciadora digital em Marataízes/ES"
+    },
+    {
+      "@type": "Person",
+      "@id": "https://flaviana-marafoni.vercel.app/#flaviana",
+      "name": "Flaviana Marafoni",
+      "givenName": "Flaviana",
+      "familyName": "Marafoni",
+      "gender": "Female",
+      "url": "https://flaviana-marafoni.vercel.app/",
+      "mainEntityOfPage": { "@id": "https://flaviana-marafoni.vercel.app/#webpage" },
+      "image": { "@id": "https://flaviana-marafoni.vercel.app/#retrato" },
+      "jobTitle": "Influenciadora Digital e Creator de Conteúdo",
+      "description": "Influenciadora digital e criadora de conteúdo há 10 anos em Marataízes, no litoral sul do Espírito Santo. Produz Reels e Stories para marcas de casa e decoração, moda e beleza, gastronomia e lifestyle, com resultado rastreado por cupom. Já atendeu mais de 100 marcas, de comércio local a Shein, L'Oréal e Dove.",
+      "email": "mailto:flavianamarafoni@gmail.com",
+      "telephone": "+55-28-99941-8357",
+      "nationality": { "@type": "Country", "name": "Brasil" },
+      "knowsLanguage": "pt-BR",
+      "worksFor": { "@id": "https://flaviana-marafoni.vercel.app/#negocio" },
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Marataízes",
+        "addressRegion": "ES",
+        "addressCountry": "BR"
+      },
+      "homeLocation": {
+        "@type": "Place",
+        "name": "Marataízes, Espírito Santo",
+        "geo": { "@type": "GeoCoordinates", "latitude": -21.0433, "longitude": -40.8244 }
+      },
+      "knowsAbout": [
+        "Marketing de influência",
+        "Marketing digital",
+        "Criação de conteúdo para Instagram",
+        "Instagram Reels",
+        "Instagram Stories",
+        "TikTok",
+        "Publicidade em redes sociais",
+        "Conteúdo UGC (User Generated Content)",
+        "Casa e decoração",
+        "Moda e beleza",
+        "Gastronomia e lifestyle",
+        "Publicidade para comércio local"
+      ],
+      "sameAs": [
+        "https://www.instagram.com/flavianamarafoni",
+        "https://www.tiktok.com/@flavimarafoni"
+      ]
+    },
+    {
+      "@type": ["ProfessionalService", "MarketingAgency"],
+      "@id": "https://flaviana-marafoni.vercel.app/#negocio",
+      "name": "Flaviana Marafoni, Marketing de Influência",
+      "alternateName": "Flaviana Marafoni Influenciadora Digital",
+      "description": "Publicidade com influenciadora digital em Marataízes e no litoral sul do Espírito Santo: Reels, Stories e campanhas para marcas de casa e decoração, moda e beleza, gastronomia e lifestyle, com venda rastreada por cupom.",
+      "url": "https://flaviana-marafoni.vercel.app/",
+      "image": { "@id": "https://flaviana-marafoni.vercel.app/#retrato" },
+      "logo": "https://flaviana-marafoni.vercel.app/img/favicon_io/android-chrome-512x512.png",
+      "founder": { "@id": "https://flaviana-marafoni.vercel.app/#flaviana" },
+      "foundingDate": "2016",
+      "email": "flavianamarafoni@gmail.com",
+      "telephone": "+55-28-99941-8357",
+      "priceRange": "R$ 100 – R$ 750",
+      "currenciesAccepted": "BRL",
+      "paymentAccepted": "Pix, Transferência bancária, Permuta",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Marataízes",
+        "addressRegion": "ES",
+        "postalCode": "29345-000",
+        "addressCountry": "BR"
+      },
+      "geo": { "@type": "GeoCoordinates", "latitude": -21.0433, "longitude": -40.8244 },
+      "areaServed": [
+        { "@type": "City", "name": "Marataízes",              "addressRegion": "ES", "addressCountry": "BR" },
+        { "@type": "City", "name": "Itapemirim",              "addressRegion": "ES", "addressCountry": "BR" },
+        { "@type": "City", "name": "Presidente Kennedy",      "addressRegion": "ES", "addressCountry": "BR" },
+        { "@type": "City", "name": "Piúma",                   "addressRegion": "ES", "addressCountry": "BR" },
+        { "@type": "City", "name": "Anchieta",                "addressRegion": "ES", "addressCountry": "BR" },
+        { "@type": "City", "name": "Iconha",                  "addressRegion": "ES", "addressCountry": "BR" },
+        { "@type": "City", "name": "Rio Novo do Sul",         "addressRegion": "ES", "addressCountry": "BR" },
+        { "@type": "City", "name": "Cachoeiro de Itapemirim", "addressRegion": "ES", "addressCountry": "BR" },
+        { "@type": "City", "name": "Guarapari",               "addressRegion": "ES", "addressCountry": "BR" },
+        { "@type": "State", "name": "Espírito Santo", "addressCountry": "BR" }
+      ],
+      "sameAs": [
+        "https://www.instagram.com/flavianamarafoni",
+        "https://www.tiktok.com/@flavimarafoni"
+      ],
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "contactType": "Comercial e parcerias",
+        "telephone": "+55-28-99941-8357",
+        "email": "flavianamarafoni@gmail.com",
+        "availableLanguage": ["Portuguese"],
+        "areaServed": "BR"
+      },
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Formatos de publicidade com influenciadora",
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "name": "Stories patrocinado, gravado em casa",
+            "description": "Sequência de Stories com fala espontânea, demonstração do produto e chamada para ação com link, cupom ou localização.",
+            "price": "100.00", "priceCurrency": "BRL", "availability": "https://schema.org/InStock",
+            "itemOffered": { "@type": "Service", "name": "Stories patrocinado no Instagram", "serviceType": "Marketing de influência", "provider": { "@id": "https://flaviana-marafoni.vercel.app/#negocio" } }
+          },
+          {
+            "@type": "Offer",
+            "name": "Stories patrocinado, gravado na sua loja",
+            "description": "Sequência de Stories gravada no ponto de venda do cliente, com deslocamento incluso.",
+            "price": "200.00", "priceCurrency": "BRL", "availability": "https://schema.org/InStock",
+            "itemOffered": { "@type": "Service", "name": "Stories patrocinado no local", "serviceType": "Marketing de influência", "provider": { "@id": "https://flaviana-marafoni.vercel.app/#negocio" } }
+          },
+          {
+            "@type": "Offer",
+            "name": "Reels patrocinado, gravado em casa",
+            "description": "Roteiro, gravação e edição de um Reels publicado no feed, com opção de colab com o perfil da marca.",
+            "price": "300.00", "priceCurrency": "BRL", "availability": "https://schema.org/InStock",
+            "itemOffered": { "@type": "Service", "name": "Reels patrocinado no Instagram", "serviceType": "Marketing de influência", "provider": { "@id": "https://flaviana-marafoni.vercel.app/#negocio" } }
+          },
+          {
+            "@type": "Offer",
+            "name": "Reels patrocinado, gravado na sua loja",
+            "description": "Roteiro, gravação no ponto de venda e edição de um Reels publicado no feed.",
+            "price": "500.00", "priceCurrency": "BRL", "availability": "https://schema.org/InStock",
+            "itemOffered": { "@type": "Service", "name": "Reels patrocinado no local", "serviceType": "Marketing de influência", "provider": { "@id": "https://flaviana-marafoni.vercel.app/#negocio" } }
+          },
+          {
+            "@type": "Offer",
+            "name": "Combo Reels + Stories",
+            "description": "Reels e Stories no mesmo pacote, de R$ 360 (em casa) a R$ 750 (no local, com 3 combos de Stories). Melhor custo-benefício da tabela.",
+            "priceSpecification": {
+              "@type": "PriceSpecification",
+              "minPrice": "360.00", "maxPrice": "750.00", "priceCurrency": "BRL"
+            },
+            "availability": "https://schema.org/InStock",
+            "itemOffered": { "@type": "Service", "name": "Combo de Reels e Stories patrocinados", "serviceType": "Marketing de influência", "provider": { "@id": "https://flaviana-marafoni.vercel.app/#negocio" } }
+          },
+          {
+            "@type": "Offer",
+            "name": "Campanha personalizada e contrato mensal",
+            "description": "Formatos maiores, estratégia específica para a marca e contratos mensais para presença contínua. Orçamento sob briefing. Permuta aceita.",
+            "availability": "https://schema.org/InStock",
+            "itemOffered": { "@type": "Service", "name": "Campanha de marketing de influência sob medida", "serviceType": "Marketing de influência", "provider": { "@id": "https://flaviana-marafoni.vercel.app/#negocio" } }
+          }
+        ]
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://flaviana-marafoni.vercel.app/#faq",
+      "isPartOf": { "@id": "https://flaviana-marafoni.vercel.app/#webpage" },
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Quanto custa uma publi com a Flaviana Marafoni?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Os valores são fechados e estão publicados na tabela. Stories custa R$ 100 gravado em casa e R$ 200 gravado na sua loja. Reels custa R$ 300 em casa e R$ 500 no local. Os combos de Reels + Stories vão de R$ 360 a R$ 750 e saem abaixo do avulso. Campanhas personalizadas e contratos mensais são orçados sob briefing." }
+        },
+        {
+          "@type": "Question",
+          "name": "Quais cidades a Flaviana Marafoni atende?",
+          "acceptedAnswer": { "@type": "Answer", "text": "A base é Marataízes, no litoral sul do Espírito Santo. Ela grava também em Itapemirim, Presidente Kennedy, Piúma, Anchieta, Iconha, Rio Novo do Sul, Cachoeiro de Itapemirim e Guarapari. Marcas nacionais são atendidas de qualquer lugar do Brasil, com gravação em casa e envio do produto." }
+        },
+        {
+          "@type": "Question",
+          "name": "Quais nichos de marca ela trabalha?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Três frentes, cada uma com audiência própria dentro do perfil: casa e decoração (móvel, enxoval, organização e reforma), moda e beleza (cosmético, cabelo, unha e vestuário) e gastronomia e lifestyle (restaurante, mercado, delivery e lazer)." }
+        },
+        {
+          "@type": "Question",
+          "name": "Você aceita permuta?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Aceito. Os valores podem ser convertidos em produtos ou serviços, de acordo com a proposta. Me manda o que você tem em mente que a gente ajusta." }
+        },
+        {
+          "@type": "Question",
+          "name": "Você grava na minha loja?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Gravo. A diferença de valor entre “em casa” e “no local” cobre o deslocamento e o tempo maior de produção: Story sai R$ 200 e Reels R$ 500 quando eu vou até você. Atendo Marataízes e a região do litoral sul do Espírito Santo." }
+        },
+        {
+          "@type": "Question",
+          "name": "Dá para fechar por mês, em vez de publi avulsa?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Dá, e costuma render mais. Trabalho com contratos mensais para marcas que querem consistência e presença ao longo do tempo: a audiência passa a associar a marca ao perfil, e não só a lembrar de um post isolado." }
+        },
+        {
+          "@type": "Question",
+          "name": "Meu produto não encaixa em nenhum formato da tabela.",
+          "acceptedAnswer": { "@type": "Answer", "text": "Então a gente monta uma campanha personalizada, com formato maior e estratégia específica para a sua marca. Me manda o briefing e eu volto com a proposta." }
+        },
+        {
+          "@type": "Question",
+          "name": "Em quanto tempo o conteúdo fica pronto?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Em média, gravo em até 5 dias úteis após receber todas as informações e/ou produtos da marca, e publico em até 3 dias úteis, ou conforme o calendário combinado com você. O pacote já inclui 1 rodada de ajustes no conteúdo final, quando necessário." }
+        },
+        {
+          "@type": "Question",
+          "name": "Como funciona o pagamento?",
+          "acceptedAnswer": { "@type": "Answer", "text": "O pagamento é feito via Pix ou dinheiro físico, conforme as condições acordadas no fechamento da parceria. Para campanhas e projetos maiores, trabalho com 50% de sinal na confirmação e 50% na entrega/publicação do conteúdo. Para ações pontuais, a forma de pagamento pode ser ajustada de acordo com o projeto. Emito nota fiscal para quem precisa, sem custo extra." }
+        },
+        {
+          "@type": "Question",
+          "name": "Você emite nota fiscal?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Emito. Sou MEI e emito nota fiscal para a marca que precisa, sem custo extra no orçamento fechado." }
+        },
+        {
+          "@type": "Question",
+          "name": "Qual é o perfil do público que acompanha a Flaviana Marafoni?",
+          "acceptedAnswer": { "@type": "Answer", "text": "63,7% mulheres e 36,3% homens, segundo o Instagram Insights. As principais cidades são Marataízes (19,4%), Cachoeiro de Itapemirim (10,8%), Itapemirim (7,1%) e Serra (4,8%), com o restante distribuído pelo Espírito Santo e pelo Brasil." }
+        },
+        {
+          "@type": "Question",
+          "name": "Qual é o alcance do perfil da Flaviana Marafoni?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Mais de 5 milhões de contas alcançadas por mês somando Instagram e TikTok, mais de 300 mil visualizações orgânicas e 65 mil seguidores: 50 mil no Instagram e 15 mil no TikTok, concentrados no litoral sul do Espírito Santo." }
+        }
+      ]
+    }
+  ]
+}
+</script>
+</head>
+
+<body>
+
+  <a class="skip" href="#conteudo">Pular para o conteúdo</a>
+
+  <!-- ============ SPRITE DE ÍCONES (SVG inline, traço 1.25, grid 24) ============ -->
+  <svg class="sprite" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+      <symbol id="i-stories" viewBox="0 0 24 24">
+        <circle cx="12" cy="12" r="9" />
+        <circle cx="12" cy="12" r="4.2" />
+        <path d="M12 1.6v3M12 19.4v3M1.6 12h3M19.4 12h3" />
+      </symbol>
+      <symbol id="i-reels" viewBox="0 0 24 24">
+        <rect x="3" y="3" width="18" height="18" />
+        <path d="M3 8.6h18M9.2 3 12 8.6M15.4 3l2.8 5.6" />
+        <path d="M10.4 12.4v4.8l4.2-2.4z" />
+      </symbol>
+      <symbol id="i-combo" viewBox="0 0 24 24">
+        <rect x="3" y="7.5" width="12.5" height="12.5" />
+        <path d="M7 7.5V4h13.2v13.2H16.5" />
+      </symbol>
+      <symbol id="i-check" viewBox="0 0 24 24">
+        <path d="m4.5 12.6 4.8 4.8L19.5 7.2" />
+      </symbol>
+      <symbol id="i-play" viewBox="0 0 24 24">
+        <path d="M9.2 6.6v10.8L18.2 12z" />
+      </symbol>
+      <symbol id="i-quote" viewBox="0 0 24 24">
+        <path
+          d="M9.4 5.6C6.6 6.8 5 9.2 5 12.4v6h6v-6H8.2c0-2.1.9-3.6 2.6-4.4zM19.4 5.6c-2.8 1.2-4.4 3.6-4.4 6.8v6h6v-6h-2.8c0-2.1.9-3.6 2.6-4.4z" />
+      </symbol>
+      <symbol id="i-arrow" viewBox="0 0 24 24">
+        <path d="M6.5 17.5 17.5 6.5M8.6 6.5h8.9v8.9" />
+      </symbol>
+      <symbol id="i-plus" viewBox="0 0 24 24">
+        <path d="M12 5v14M5 12h14" />
+      </symbol>
+      <symbol id="i-sun" viewBox="0 0 24 24">
+        <circle cx="12" cy="12" r="4.6" />
+        <path
+          d="M12 1.8v2.6M12 19.6v2.6M1.8 12h2.6M19.6 12h2.6M4.8 4.8l1.9 1.9M17.3 17.3l1.9 1.9M19.2 4.8l-1.9 1.9M6.7 17.3l-1.9 1.9" />
+      </symbol>
+      <symbol id="i-moon" viewBox="0 0 24 24">
+        <path d="M20.4 14.6A8.6 8.6 0 0 1 9.4 3.6a8.6 8.6 0 1 0 11 11Z" />
+      </symbol>
+      <symbol id="i-instagram" viewBox="0 0 24 24">
+        <rect x="3" y="3" width="18" height="18" rx="5" />
+        <circle cx="12" cy="12" r="4" />
+        <circle cx="17.4" cy="6.6" r=".9" fill="currentColor" stroke="none" />
+      </symbol>
+      <symbol id="i-tiktok" viewBox="0 0 24 24">
+        <path d="M14.2 3v11.9a3.9 3.9 0 1 1-3.3-3.85" />
+        <path d="M14.2 3.4a5.4 5.4 0 0 0 5.2 4.3" />
+      </symbol>
+      <symbol id="i-whatsapp" viewBox="0 0 24 24">
+        <path d="M20.3 11.7a8.3 8.3 0 0 1-12.2 7.3L3.7 20.3l1.3-4.3A8.3 8.3 0 1 1 20.3 11.7Z" />
+        <path
+          d="M9 9.1c.3-.7.6-.7.9-.7h.6c.2 0 .5 0 .7.5l.7 1.7c.1.2 0 .4-.1.6l-.4.5c-.1.2-.3.3-.1.6a7 7 0 0 0 3.1 2.6c.3.1.5.1.7-.1l.6-.7c.2-.2.4-.2.6-.1l1.6.8c.3.1.4.3.4.5a1.9 1.9 0 0 1-1.3 1.6 3.5 3.5 0 0 1-2.3-.2 11 11 0 0 1-5.5-4.9 3.6 3.6 0 0 1-.6-2.1 2 2 0 0 1 .4-1.1Z" />
+      </symbol>
+      <symbol id="i-zoom" viewBox="0 0 24 24">
+        <circle cx="10.8" cy="10.8" r="6.3" />
+        <path d="M15.4 15.4 20 20M10.8 8v5.6M8 10.8h5.6" />
+      </symbol>
+      <!-- gesto de arrastar: setas para os dois lados. So aparece no mobile,
+           dentro da bussola de cada trilho. -->
+      <symbol id="i-arrastar" viewBox="0 0 24 24">
+        <path d="M4.5 12h15M7.6 8.9 4.5 12l3.1 3.1M16.4 8.9 19.5 12l-3.1 3.1" />
+      </symbol>
+      <!-- gesto de tocar: a seta do cursor. Um desenho so, de contorno, que
+           continua legivel nos 14px em que ele e usado - a mao de dedinhos
+           vira borrao nesse tamanho. -->
+      <symbol id="i-toque" viewBox="0 0 24 24">
+        <path d="M7.5 4 18 13.4l-4.4.5 2.3 4.9-2.4 1.1-2.3-4.9-3 3.1z" />
+      </symbol>
+    </defs>
+  </svg>
+
+  <!-- ============ INTRO 3D (roda uma vez por sessão) ============ -->
+  <div class="intro" data-intro role="presentation">
+    <div class="intro__inner">
+      <div class="obj obj--intro" aria-hidden="true">
+        <div class="obj__stage">
+          <i class="obj__ring" style="--i:0"></i><i class="obj__ring" style="--i:1"></i>
+          <i class="obj__ring" style="--i:2"></i><i class="obj__ring" style="--i:3"></i>
+          <i class="obj__ring" style="--i:4"></i><i class="obj__ring" style="--i:5"></i>
+          <i class="obj__ring" style="--i:6"></i><i class="obj__ring" style="--i:7"></i>
+          <i class="obj__ring" style="--i:8"></i><i class="obj__ring" style="--i:9"></i>
+          <i class="obj__ring" style="--i:10"></i><i class="obj__ring" style="--i:11"></i>
+        </div>
+      </div>
+      <p class="intro__name"><span>Flaviana</span> <span><em>Marafoni</em></span></p>
+      <p class="intro__role">Influencer Creator</p>
+    </div>
+    <button class="intro__skip" type="button" data-intro-skip>Pular intro</button>
+  </div>
+
+  <!-- ============ NAV ============ -->
+  <header class="nav" data-nav>
+    <div class="container nav__inner">
+      <a class="nav__brand" href="#topo">Flaviana&nbsp;Marafoni</a>
+      <!-- Nav enxuta (3 links, sem CTA), como a referencia. Os ancoras #nichos e
+         #marcas continuam existindo na pagina - so sairam da barra.
+         O CTA persistente passou a ser a .wa-bar, agora visivel tambem no desktop. -->
+      <nav aria-label="Seções da página">
+        <a href="#sobre">Sobre</a>
+        <a href="#conteudos">Conteúdo</a>
+        <a href="#investimento">Investimento</a>
+        <a href="#cases">Resultados</a>
+      </nav>
+      <!-- Abre o sumario em folha. So aparece abaixo de 1100px, onde a regua da
+         margem (.rail) nao cabe. O JS clona a lista da .rail para dentro dele -
+         sem JS o botao nem chega a ser exibido (fica [hidden]). -->
+      <button class="nav__sumario" type="button" data-sumario-abrir hidden aria-expanded="false"
+        aria-controls="sumario-folha">
+        <span class="nav__sumario-traco" aria-hidden="true"></span>Sumário
+      </button>
+    </div>
+    <!-- Filete de progresso da leitura. Puro CSS (animation-timeline: scroll()):
+       onde nao houver suporte ele simplesmente fica em scaleX(0), invisivel. -->
+    <div class="nav__progress" aria-hidden="true"></div>
+  </header>
+
+  <!-- ============ SUMÁRIO: RÉGUA DE MARGEM ============
+     Mapa 1:1 da página na margem esquerda, no espírito da marcação de corte
+     na borda de um livro. Cada seção é um SEGMENTO vertical cuja altura é
+     proporcional à altura real dela no documento - por isso o intervalo entre
+     dois segmentos já é o fim de uma seção e o começo da outra, sem precisar
+     de nenhum enfeite extra. Os pontos internos são traços curtos deitados,
+     na posição real deles dentro do segmento.
+
+     A geometria (--y e --h de cada item) é escrita pelo script. SEM JS a lista
+     continua sendo uma lista de âncoras reais, distribuída por flex - só perde
+     a proporção. A tinta mauve que desce é a mesma técnica do .nav__progress:
+     animation-timeline: scroll(), zero listener de rolagem.
+
+     Só aparece a partir de 1100px; abaixo disso vira o botão "Sumário" da nav,
+     que abre esta mesma lista em folha. -->
+  <nav class="rail" aria-label="Sumário da página" data-rail>
+    <span class="rail__eixo" aria-hidden="true"></span>
+    <span class="rail__ink" aria-hidden="true"></span>
+    <ol class="rail__list">
+
+      <li class="rail__item" data-nivel="1">
+        <a class="rail__link" href="#topo"><i class="rail__traco" aria-hidden="true"></i>
+          <span class="rail__rotulo"><b>01</b>Início</span></a>
+      </li>
+      <li class="rail__item" data-nivel="2">
+        <a class="rail__link" href="#numeros"><i class="rail__traco" aria-hidden="true"></i>
+          <span class="rail__rotulo">Números do perfil</span></a>
+      </li>
+
+      <li class="rail__item" data-nivel="1">
+        <a class="rail__link" href="#sobre"><i class="rail__traco" aria-hidden="true"></i>
+          <span class="rail__rotulo"><b>02</b>Sobre mim</span></a>
+      </li>
+      <li class="rail__item" data-nivel="2">
+        <a class="rail__link" href="#sobre-numeros"><i class="rail__traco" aria-hidden="true"></i>
+          <span class="rail__rotulo">Os números do perfil</span></a>
+      </li>
+      <li class="rail__item" data-nivel="2">
+        <a class="rail__link" href="#sobre-publico"><i class="rail__traco" aria-hidden="true"></i>
+          <span class="rail__rotulo">De onde vem meu público</span></a>
+      </li>
+
+      <li class="rail__item" data-nivel="1">
+        <a class="rail__link" href="#nichos"><i class="rail__traco" aria-hidden="true"></i>
+          <span class="rail__rotulo"><b>03</b>Nichos</span></a>
+      </li>
+
+      <li class="rail__item" data-nivel="1">
+        <a class="rail__link" href="#conteudos"><i class="rail__traco" aria-hidden="true"></i>
+          <span class="rail__rotulo"><b>04</b>Conteúdo</span></a>
+      </li>
+      <li class="rail__item" data-nivel="2">
+        <a class="rail__link" href="#conteudo-reels"><i class="rail__traco" aria-hidden="true"></i>
+          <span class="rail__rotulo">Reels em destaque</span></a>
+      </li>
+      <li class="rail__item" data-nivel="2">
+        <a class="rail__link" href="#conteudo-stories"><i class="rail__traco" aria-hidden="true"></i>
+          <span class="rail__rotulo">Stories em destaque</span></a>
+      </li>
+      <li class="rail__item" data-nivel="2">
+        <a class="rail__link" href="#conteudo-casa"><i class="rail__traco" aria-hidden="true"></i>
+          <span class="rail__rotulo">Casa e decoração</span></a>
+      </li>
+      <li class="rail__item" data-nivel="2">
+        <a class="rail__link" href="#conteudo-beleza"><i class="rail__traco" aria-hidden="true"></i>
+          <span class="rail__rotulo">Moda e beleza</span></a>
+      </li>
+      <li class="rail__item" data-nivel="2">
+        <a class="rail__link" href="#conteudo-gastronomia"><i class="rail__traco" aria-hidden="true"></i>
+          <span class="rail__rotulo">Gastronomia</span></a>
+      </li>
+
+      <li class="rail__item" data-nivel="1">
+        <a class="rail__link" href="#investimento"><i class="rail__traco" aria-hidden="true"></i>
+          <span class="rail__rotulo"><b>05</b>Investimento</span></a>
+      </li>
+      <li class="rail__item" data-nivel="2">
+        <a class="rail__link" href="#preco-combos"><i class="rail__traco" aria-hidden="true"></i>
+          <span class="rail__rotulo">Combos</span></a>
+      </li>
+      <li class="rail__item" data-nivel="2">
+        <a class="rail__link" href="#preco-stories"><i class="rail__traco" aria-hidden="true"></i>
+          <span class="rail__rotulo">Stories avulsos</span></a>
+      </li>
+      <li class="rail__item" data-nivel="2">
+        <a class="rail__link" href="#preco-reels"><i class="rail__traco" aria-hidden="true"></i>
+          <span class="rail__rotulo">Reels avulsos</span></a>
+      </li>
+      <li class="rail__item" data-nivel="2">
+        <a class="rail__link" href="#preco-outros"><i class="rail__traco" aria-hidden="true"></i>
+          <span class="rail__rotulo">Outras opções</span></a>
+      </li>
+
+      <li class="rail__item" data-nivel="1">
+        <a class="rail__link" href="#cases"><i class="rail__traco" aria-hidden="true"></i>
+          <span class="rail__rotulo"><b>06</b>Resultados</span></a>
+      </li>
+      <li class="rail__item" data-nivel="2">
+        <a class="rail__link" href="#cases-alcance"><i class="rail__traco" aria-hidden="true"></i>
+          <span class="rail__rotulo">Alcance</span></a>
+      </li>
+      <li class="rail__item" data-nivel="2">
+        <a class="rail__link" href="#cases-feedbacks"><i class="rail__traco" aria-hidden="true"></i>
+          <span class="rail__rotulo">Feedbacks das marcas</span></a>
+      </li>
+
+      <li class="rail__item" data-nivel="1">
+        <a class="rail__link" href="#marcas"><i class="rail__traco" aria-hidden="true"></i>
+          <span class="rail__rotulo"><b>07</b>Marcas atendidas</span></a>
+      </li>
+      <li class="rail__item" data-nivel="1">
+        <a class="rail__link" href="#faq"><i class="rail__traco" aria-hidden="true"></i>
+          <span class="rail__rotulo"><b>08</b>Dúvidas</span></a>
+      </li>
+      <li class="rail__item" data-nivel="1">
+        <a class="rail__link" href="#contato"><i class="rail__traco" aria-hidden="true"></i>
+          <span class="rail__rotulo"><b>09</b>Falar comigo</span></a>
+      </li>
+
+    </ol>
+  </nav>
+
+  <main id="conteudo">
+
+    <!-- ============ HERO - full-bleed, bloco mauve solido sobre a midia ============ -->
+    <section class="hero" id="topo">
+
+      <!-- Camada de fundo do hero: fica so no gradiente de proposito. O retrato
+           dela e o .hero__portrait logo abaixo - colocar uma segunda imagem grande
+           aqui competiria com ele pelo LCP e atrasaria a pintura. -->
+      <div class="hero__media" aria-hidden="true"></div>
+
+      <div class="container hero__inner">
+
+        <!-- Retrato ao lado do card roxo. O objeto 3D giratorio continua existindo
+         na intro de abertura (.intro .obj--intro) - aqui, no hero, ele foi
+         trocado pela foto da Flaviana. -->
+        <div class="hero__object">
+          <!-- LCP da pagina. Vem em WebP (o PNG original tinha 2,3 MB - derrubava o
+           Core Web Vitals e, com ele, o ranking). fetchpriority=high + o preload
+           la no <head> fazem o browser buscar essa imagem antes de tudo.
+           NAO por loading="lazy" aqui: imagem acima da dobra com lazy atrasa o LCP. -->
+          <img class="hero__portrait" src="img/flaviana-720.webp"
+            srcset="img/flaviana-480.webp 480w, img/flaviana-720.webp 720w, img/flaviana-1024.webp 1024w"
+            sizes="(max-width:900px) 45vw, 380px"
+            alt="Flaviana Marafoni, influenciadora digital e creator de conteúdo em Marataízes, no litoral sul do Espírito Santo"
+            width="1024" height="1536" fetchpriority="high" decoding="async" data-parallax>
+        </div>
+
+        <div class="hero__panel">
+          <!-- O eyebrow e a lede carregam o termo de busca ("influenciadora digital em
+           Marataizes / litoral sul do ES"); o <h1> continua sendo a linha de venda. -->
+          <p class="eyebrow" data-stagger>Influenciadora digital em Marataízes/ES · Casa e decoração · Beleza ·
+            Gastronomia</p>
+          <h1 data-stagger>Levo sua marca para mais de <em>5 milhões</em> de pessoas por mês e provo a venda no cupom.
+          </h1>
+
+          <p class="lede" data-stagger>Sou influenciadora digital e creator há 10 anos em Marataízes, no litoral sul do
+            Espírito Santo. Produzo Reels e Stories que a marca consegue medir: pedido fechado, ticket médio,
+            faturamento rastreado.</p>
+
+          <div class="hero__cta" data-stagger>
+            <!-- WhatsApp: +55 (28) 99941-8357 -->
+            <a class="btn btn--invert"
+              href="https://wa.me/5528999418357?text=Oi%20Flaviana%2C%20vi%20seu%20portf%C3%B3lio%20e%20quero%20um%20or%C3%A7amento"
+              target="_blank" rel="noopener">Quero um orçamento <svg class="ico" aria-hidden="true">
+                <use href="#i-arrow" />
+              </svg></a>
+            <a class="btn btn--invert btn--outline" href="#cases">Ver resultados</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ FAIXA DE ESTATISTICAS ============ -->
+    <section class="stats-band" id="numeros" aria-label="Números do perfil">
+      <div class="container">
+        <dl class="stats">
+          <div class="stat">
+            <dd>+5 mi</dd>
+            <dt>Alcance por mês</dt>
+          </div>
+          <div class="stat">
+            <dd>+300 mil</dd>
+            <dt>Views orgânicas</dt>
+          </div>
+          <div class="stat">
+            <dd>65 mil</dd>
+            <dt>Seguidores</dt>
+          </div>
+          <div class="stat">
+            <dd>+100</dd>
+            <dt>Marcas atendidas</dt>
+          </div>
+        </dl>
+      </div>
+    </section>
+
+    <!-- ============ FAIXA DE MARCAS ============ -->
+    <section class="marquee-wrap" aria-label="Marcas já atendidas">
+      <p class="marquee__caption">+100 marcas já anunciaram comigo</p>
+      <div class="marquee" data-marquee>
+        <ul class="marquee__track">
+          <li>@abriudormiu</li>
+          <li>@acaidochefmarataizes</li>
+          <li>@ananeire-atelie</li>
+          <li>@apaixoneedecore</li>
+          <li>@appel.home</li>
+          <li>@banzaishushi</li>
+          <li>@beltratcomesticos</li>
+          <li>@biancaf_nails</li>
+          <li>@brasil_curso</li>
+          <li>@brava_wood</li>
+          <li>@caixatomada</li>
+          <li>@casaevideo</li>
+          <li>@casulohygienize</li>
+          <li>@cavanestofados</li>
+          <li>@ciadomarmarataizes</li>
+          <li>@circoorlandooficial</li>
+          <li>@colibrifestases</li>
+          <li>@colormaq</li>
+          <li>@Confortdoor</li>
+          <li>@constance.marataizes</li>
+          <li>@day_tropical</li>
+          <li>@designergessicawanguestel</li>
+          <li>@dmaischikenfrito</li>
+          <li>@dovebrasil</li>
+          <li>@espetacularmegashow</li>
+          <li>@espaco_comemorar</li>
+          <li>@espaco_maos_de_fada30</li>
+          <li>@fabelaaromas</li>
+          <li>@fran_bayerl_nails</li>
+          <li>@gabrielmoraes_bass</li>
+          <li>@gocasebr</li>
+          <li>@grupo.goold</li>
+          <li>@hairlucas_bernardo</li>
+          <li>@hayup.brasil</li>
+          <li>@hotparadiseoficiales</li>
+          <li>@iluminabeaute</li>
+          <li>@jeitodesersemijois</li>
+          <li>@jesseednbrasaesabor</li>
+          <li>@kaimanavaa.br</li>
+          <li>@kerasysbrasil</li>
+          <li>@krt.natumed</li>
+          <li>@livia_coelho_</li>
+          <li>@lojasmart.com2021</li>
+          <li>@litoral.moveis</li>
+        </ul>
+      </div>
+      <div class="marquee marquee--rev" data-marquee>
+        <ul class="marquee__track">
+          <li>@loja_sora</li>
+          <li>@lolacosmetics</li>
+          <li>@longmoda18</li>
+          <li>@lorealparias</li>
+          <li>@luvlette</li>
+          <li>@magiccoloroficial</li>
+          <li>@maju_nails</li>
+          <li>@manuella_lashdesigner</li>
+          <li>@mercadaomoda.marataizes</li>
+          <li>@mirianporto.nail</li>
+          <li>@miriel_ramos</li>
+          <li>@modernamobilia</li>
+          <li>@momolifestylebr</li>
+          <li>@nutri.amandorim</li>
+          <li>@omobrasil</li>
+          <li>@or.eyewear</li>
+          <li>@oticadinamicavila</li>
+          <li>@outlett_30</li>
+          <li>@ozemonte_make</li>
+          <li>@padariaitapemirim</li>
+          <li>@pamela_tupper</li>
+          <li>@pantenebrasil</li>
+          <li>@pausanadieta</li>
+          <li>@penafamacalcados</li>
+          <li>@poderverde_br</li>
+          <li>@restaurante_capitaogancho</li>
+          <li>@saboritodelivery</li>
+          <li>@saceladybr</li>
+          <li>@salsalanchesmarataizes</li>
+          <li>@sheglam_official</li>
+          <li>@sheinoficial</li>
+          <li>@shopee_br</li>
+          <li>@silveiratour</li>
+          <li>@sitiomardegan</li>
+          <li>@sitiomaravilhoso</li>
+          <li>@sr.costela_marataizes</li>
+          <li>@superatacado.sempretem</li>
+          <li>@supermercado_vieirao</li>
+          <li>@terra.flora</li>
+          <li>@thermas.es</li>
+          <li>@thinairrozamakeup</li>
+          <li>@toalhasshow</li>
+          <li>@todafofurinha</li>
+          <li>@use.bob</li>
+          <li>@useoazy</li>
+          <li>@valentinamarataizes</li>
+          <li>@zoostoreoficial</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ============ SOBRE ============ -->
+    <section class="section" id="sobre">
+      <div class="container">
+        <div class="section__head">
+          <p class="kicker">01 · Sobre</p>
+          <h2>Dez anos criando conteúdo na <em>mesma</em> praça.</h2>
+          <p class="section__lede">Eu conheço quem compra de você: é a mesma gente que me assiste todo dia.</p>
+          <a class="btn btn--sm"
+            href="https://wa.me/5528999418357?text=Oi%20Flaviana%2C%20vi%20seu%20portf%C3%B3lio%20e%20quero%20um%20or%C3%A7amento"
+            target="_blank" rel="noopener">Quero um orçamento</a>
+        </div>
+      </div>
+      <div class="container grid-2">
+        <!-- No desktop isto e um texto corrido comum: os quatro <p> empilhados,
+             exatamente como sempre foram. Abaixo de 860px o .prosa vira trilho e
+             cada paragrafo vira uma FOLHA que se passa para o lado - quatro telas
+             de leitura viram uma so, sem cortar uma palavra do texto. -->
+        <div class="prosa" data-trilho data-trilho-rotulo="Sobre mim">
+          <p class="prosa__folha">Tenho 24 anos e moro em Marataízes, no litoral sul do Espírito Santo. Comecei a criar
+            conteúdo aos 14: são
+            10 anos de estrada, tempo suficiente para saber o que faz uma loja de bairro encher no sábado e o que só
+            rende curtida.</p>
+          <p class="prosa__folha">Trabalho em três frentes: casa e decoração, moda e beleza, gastronomia e lifestyle.
+            Gravo dentro da rotina
+            real: a cozinha, a loja, o produto em uso. É por isso que o seguidor confia e compra: não parece anúncio,
+            parece indicação.</p>
+          <p class="prosa__folha">Já atendi mais de 100 empresas, do supermercado de bairro à Shein, à L&rsquo;Oréal e à
+            Dove. Marca local e
+            marca nacional pedem coisas diferentes; eu entrego as duas.</p>
+          <!-- Bloco de regiao: e informacao que a marca realmente quer (voce vai ate
+               a minha loja?) e, de quebra, o sinal mais forte que existe para busca
+               local - cada cidade daqui bate com o areaServed do JSON-LD no <head>. -->
+          <p class="prosa__folha">Se a sua marca é daqui, eu vou até a loja: gravo em <strong>Marataízes</strong>,
+            Itapemirim, Presidente
+            Kennedy, Piúma, Anchieta, Iconha, Rio Novo do Sul, Cachoeiro de Itapemirim e Guarapari. Se a marca é
+            nacional, gravo em casa com o produto enviado e atendo de qualquer lugar do Brasil.</p>
+        </div>
+        <aside class="panel">
+          <h3 class="rail-alvo" id="sobre-numeros">Os números do perfil</h3>
+          <dl class="datalist">
+            <div>
+              <dt>Instagram</dt>
+              <dd>50 mil</dd>
+            </div>
+            <div>
+              <dt>TikTok</dt>
+              <dd>15 mil</dd>
+            </div>
+            <div>
+              <dt>Alcance mensal</dt>
+              <dd>+5 milhões</dd>
+            </div>
+            <div>
+              <dt>Views orgânicas</dt>
+              <dd>+300 mil</dd>
+            </div>
+            <div>
+              <dt>Praça</dt>
+              <dd>Marataízes e litoral sul/ES</dd>
+            </div>
+            <div>
+              <dt>No mercado desde</dt>
+              <dd>2016</dd>
+            </div>
+          </dl>
+          <p class="panel__note">Dados de agosto de 2026.</p>
+        </aside>
+      </div>
+
+      <!-- ---- RECORTE DE PUBLICO (genero / cidades) - Instagram Insights ----
+       Mesmo componente de barra nas duas cartas: .audience__bar preenche via
+       --w quando a linha entra na tela (reveal cadastrado em script.js). -->
+      <div class="container">
+        <div class="audience" data-trilho data-trilho-rotulo="Recorte de público">
+          <div class="panel audience__card">
+            <h3>Gênero de quem me acompanha</h3>
+            <div class="audience__row">
+              <span class="audience__label">Homens</span>
+              <span class="audience__bar"><i style="--w:36.3%"></i></span>
+              <span class="audience__pct">36,3%</span>
+            </div>
+            <div class="audience__row">
+              <span class="audience__label">Mulheres</span>
+              <span class="audience__bar"><i style="--w:63.7%"></i></span>
+              <span class="audience__pct">63,7%</span>
+            </div>
+          </div>
+          <div class="panel audience__card">
+            <h3 class="rail-alvo" id="sobre-publico">De onde vem meu público</h3>
+            <div class="audience__row">
+              <span class="audience__label">Marataízes</span>
+              <span class="audience__bar"><i style="--w:19.4%"></i></span>
+              <span class="audience__pct">19,4%</span>
+            </div>
+            <div class="audience__row">
+              <span class="audience__label">Cachoeiro de Itapemirim</span>
+              <span class="audience__bar"><i style="--w:10.8%"></i></span>
+              <span class="audience__pct">10,8%</span>
+            </div>
+            <div class="audience__row">
+              <span class="audience__label">Itapemirim</span>
+              <span class="audience__bar"><i style="--w:7.1%"></i></span>
+              <span class="audience__pct">7,1%</span>
+            </div>
+            <div class="audience__row">
+              <span class="audience__label">Serra</span>
+              <span class="audience__bar"><i style="--w:4.8%"></i></span>
+              <span class="audience__pct">4,8%</span>
+            </div>
+          </div>
+        </div>
+        <p class="panel__note">Dados do Instagram Insights, agosto de 2026.</p>
+      </div>
+    </section>
+
+    <!-- ============ NICHOS ============ -->
+    <section class="section section--rule" id="nichos">
+      <div class="container">
+        <div class="section__head">
+          <p class="kicker">02 · Nichos</p>
+          <h2>Três frentes, três públicos que <em>já</em> compram.</h2>
+          <p class="section__lede">Cada frente tem audiência própria dentro do perfil. Se a sua marca está em uma delas,
+            o conteúdo já chega pronto para quem tem intenção de compra.</p>
+          <a class="btn btn--sm" href="#investimento">Ver investimento</a>
+        </div>
+        <div class="niches" data-trilho data-trilho-rotulo="Nichos">
+          <article class="niche">
+            <h3>Casa e Decoração</h3>
+            <p>Móvel, enxoval, organização e reforma. Público que planeja compra grande e pesquisa antes.</p>
+            <ul class="taglist">
+              <li>@appel.home</li>
+              <li>@apaixoneedecore</li>
+              <li>@litoral.moveis</li>
+              <li>@momolifestylebr</li>
+            </ul>
+          </article>
+          <article class="niche">
+            <h3>Moda e Beleza</h3>
+            <p>Cosmético, cabelo, unha e vestuário. Ciclo de compra curto e resposta rápida ao cupom.</p>
+            <ul class="taglist">
+              <li>@saceladybr</li>
+              <li>@sheinoficial</li>
+              <li>@iluminabeaute</li>
+              <li>@lolacosmetics</li>
+            </ul>
+          </article>
+          <article class="niche">
+            <h3>Gastronomia e Lifestyle</h3>
+            <p>Restaurante, mercado, delivery e lazer. Conteúdo que enche a casa no fim de semana.</p>
+            <ul class="taglist">
+              <li>@superatacado.sempretem</li>
+              <li>@sr.costela_marataizes</li>
+              <li>@kaimanavaa.br</li>
+              <li>@thermas.es</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ CONTEUDO EM DESTAQUE ============
+     ESTRUTURA CRUA - todos os slots estao vazios de proposito.
+     Cada .reel espera dois preenchimentos:
+       1) href do <a>  -> link do post (ex.: https://www.instagram.com/reel/ABC123/)
+       2) o <img>      -> capa/thumb do video (comentado abaixo de cada figure)
+     Enquanto a imagem nao existir, a moldura mostra o nome do arquivo esperado.
+     Para ativar cada item: descomentar o <img> e apagar o data-frame do <figure>.
+
+     Se depois voce preferir video rodando em vez de capa estatica, o mesmo
+     <figure> aceita <video muted loop playsinline poster="..."> no lugar do <img>
+     sem mudar nada no CSS. -->
+    <section class="section section--rule" id="conteudos">
+      <div class="container">
+        <div class="section__head">
+          <p class="kicker">03 · Conteúdo</p>
+          <h2>O que eu <em>entrego</em>, na prática.</h2>
+          <p class="section__lede">Reels e Stories publicados de verdade, nos três nichos. Clique em qualquer um para
+            assistir.</p>
+          <a class="btn btn--sm" href="#investimento">Ver investimento</a>
+        </div>
+
+        <!-- ---- REELS EM DESTAQUE - LEQUE COM SCROLL ----
+         Os videos sao Shorts do YouTube (ids em docs/videos-yt.md). Cada carta ja
+         nasce funcionando: a capa vem de i.ytimg.com e o link aponta pro Short.
+         Com JS o clique abre o player numa caixa 9:16 em cima da pagina.
+
+         COMO O LEQUE FUNCIONA
+         O .fan e um trilho alto; o .fan__stage gruda no topo (sticky) e cada
+         .fan__hand (uma "mao" de cartas) atravessa tres estados conforme a rolagem:
+           1) chega inclinada, aberta em leque, vinda de cima
+           2) alinha no centro, reta, todas na mesma linha
+           3) sai inclinada por baixo, e a proxima mao entra
+         Sem JS, em tela pequena ou com movimento reduzido, ele vira uma grade
+         normal de cartoes - o .is-on so e ligado pelo script quando da.
+
+         PARA TROCAR/ADICIONAR VIDEO: mude o id em data-yt, no href e na URL da capa
+         (sao o mesmo id nos tres lugares). Mao de 3 cartas usa fan__hand--3,
+         de 4 usa fan__hand--4, e o --fan-n do .fan e a QUANTIDADE DE MAOS.
+
+         .card__ig-top aponta pro post/reel da marca quando ha o link (docs/videos-yt.md);
+         quando so existe o handle, sem link do post, aponta pro perfil da marca no
+         Instagram. .card__ig-bottom continua sempre apontando pro perfil da Flaviana. -->
+        <div class="reelgroup" data-aba="Reels">
+          <div class="reelgroup__head">
+            <h3 class="rail-alvo" id="conteudo-reels">Reels em destaque</h3>
+            <p><span class="so-desktop">Role a página: as cartas abrem em leque, alinham no centro e dão lugar às
+                próximas. Clique</span><span class="so-mobile">Arraste as cartas para o lado e toque</span> em qualquer
+              uma para assistir.</p>
+          </div>
+
+          <div class="fan" data-fan style="--fan-n:1">
+            <div class="fan__stage">
+              <div class="fan__deck">
+
+                <div class="fan__hand fan__hand--4" data-fan-hand data-trilho data-trilho-rotulo="Reels em destaque">
+                  <article class="fan__card">
+                    <a class="card__ig-top" href="https://www.instagram.com/reel/DbLeyOzJAAp/" target="_blank"
+                      rel="noopener">
+                      <svg class="ico" aria-hidden="true">
+                        <use href="#i-instagram" />
+                      </svg>Ver vídeo no Instagram
+                    </a>
+                    <a class="reel__link" href="https://youtube.com/shorts/xPCuZFUhOsg" target="_blank" rel="noopener"
+                      data-yt="xPCuZFUhOsg">
+                      <figure class="frame frame--9x16">
+                        <img src="https://i.ytimg.com/vi/xPCuZFUhOsg/hqdefault.jpg" alt="Reels em destaque do Superatacado Sempre Tem, gravado por Flaviana Marafoni"
+                          loading="lazy" decoding="async">
+                        <span class="reel__play" aria-hidden="true"><svg class="ico">
+                            <use href="#i-play" />
+                          </svg></span>
+                      </figure>
+                      <p class="reel__brand">@superatacado.sempretem</p>
+                      <p class="reel__meta">+190 mil visualizações</p>
+                    </a>
+                    <a class="card__ig-bottom" href="https://instagram.com/flavianamarafoni" target="_blank"
+                      rel="noopener">
+                      <svg class="ico" aria-hidden="true">
+                        <use href="#i-instagram" />
+                      </svg>Acessar meu Instagram
+                    </a>
+                  </article>
+                  <article class="fan__card">
+                    <a class="card__ig-top" href="https://www.instagram.com/reel/DchG1wkpeyN/" target="_blank"
+                      rel="noopener">
+                      <svg class="ico" aria-hidden="true">
+                        <use href="#i-instagram" />
+                      </svg>Ver vídeo no Instagram
+                    </a>
+                    <a class="reel__link" href="https://youtube.com/shorts/D8iIxAeWLmA" target="_blank" rel="noopener"
+                      data-yt="D8iIxAeWLmA">
+                      <figure class="frame frame--9x16">
+                        <img src="https://i.ytimg.com/vi/D8iIxAeWLmA/hqdefault.jpg" alt="Reels em destaque da Loja Hot Paradise, produzido por Flaviana Marafoni"
+                          loading="lazy" decoding="async">
+                        <span class="reel__play" aria-hidden="true"><svg class="ico">
+                            <use href="#i-play" />
+                          </svg></span>
+                      </figure>
+                      <p class="reel__brand">@lojashotparadisees</p>
+                      <p class="reel__meta">+200 mil visualizações</p>
+                    </a>
+                    <a class="card__ig-bottom" href="https://instagram.com/flavianamarafoni" target="_blank"
+                      rel="noopener">
+                      <svg class="ico" aria-hidden="true">
+                        <use href="#i-instagram" />
+                      </svg>Acessar meu Instagram
+                    </a>
+                  </article>
+                  <article class="fan__card">
+                    <a class="card__ig-top" href="https://www.instagram.com/reel/DVRyNtUCcdd/" target="_blank"
+                      rel="noopener">
+                      <svg class="ico" aria-hidden="true">
+                        <use href="#i-instagram" />
+                      </svg>Ver vídeo no Instagram
+                    </a>
+                    <a class="reel__link" href="https://youtube.com/shorts/gV-6FAKKrNc" target="_blank" rel="noopener"
+                      data-yt="gV-6FAKKrNc">
+                      <figure class="frame frame--9x16">
+                        <img src="https://i.ytimg.com/vi/gV-6FAKKrNc/hqdefault.jpg" alt="Reels em destaque do Sr. Costela Marataízes, com Flaviana Marafoni"
+                          loading="lazy" decoding="async">
+                        <span class="reel__play" aria-hidden="true"><svg class="ico">
+                            <use href="#i-play" />
+                          </svg></span>
+                      </figure>
+                      <p class="reel__brand">@sr.costela_marataizes</p>
+                      <p class="reel__meta">+340 mil visualizações</p>
+                    </a>
+                    <a class="card__ig-bottom" href="https://instagram.com/flavianamarafoni" target="_blank"
+                      rel="noopener">
+                      <svg class="ico" aria-hidden="true">
+                        <use href="#i-instagram" />
+                      </svg>Acessar meu Instagram
+                    </a>
+                  </article>
+                  <article class="fan__card">
+                    <a class="card__ig-top" href="https://www.instagram.com/reel/DW_zQ_diWRm/" target="_blank"
+                      rel="noopener">
+                      <svg class="ico" aria-hidden="true">
+                        <use href="#i-instagram" />
+                      </svg>Ver vídeo no Instagram
+                    </a>
+                    <a class="reel__link" href="https://youtube.com/shorts/p5R4Ounpq5w" target="_blank" rel="noopener"
+                      data-yt="p5R4Ounpq5w">
+                      <figure class="frame frame--9x16">
+                        <img src="https://i.ytimg.com/vi/p5R4Ounpq5w/hqdefault.jpg" alt="Reels em destaque da Apaixone e Decore, gravado por Flaviana Marafoni" loading="lazy"
+                          decoding="async">
+                        <span class="reel__play" aria-hidden="true"><svg class="ico">
+                            <use href="#i-play" />
+                          </svg></span>
+                      </figure>
+                      <p class="reel__brand">@apaixoneedecore</p>
+                      <p class="reel__meta">+320 mil visualizações</p>
+                    </a>
+                    <a class="card__ig-bottom" href="https://instagram.com/flavianamarafoni" target="_blank"
+                      rel="noopener">
+                      <svg class="ico" aria-hidden="true">
+                        <use href="#i-instagram" />
+                      </svg>Acessar meu Instagram
+                    </a>
+                  </article>
+                </div>
+
+              </div>
+
+              <!-- bussola do leque: so aparece quando o efeito esta ligado -->
+              <nav class="fan__nav" aria-label="Grupos de Reels">
+                <p class="fan__count"><b data-fan-atual>01</b> / 01</p>
+                <button class="fan__dot" type="button" data-fan-go="0" aria-label="Ir para o grupo 1"></button>
+              </nav>
+            </div>
+          </div>
+        </div>
+
+        <!-- ---- STORIES EM DESTAQUE (4) - LEQUE, mesmo padrao da 1a secao.
+         Sem link do post ainda (docs/videos-yt.md so tem o handle), entao o
+         card__ig-top aponta pro perfil de cada marca no Instagram. ---- -->
+        <div class="reelgroup" data-aba="Stories">
+          <div class="reelgroup__head">
+            <h3 class="rail-alvo" id="conteudo-stories">Stories em destaque</h3>
+            <p>Fala espontânea, demonstração do produto e CTA: o formato que converte mais rápido.</p>
+          </div>
+
+          <div class="fan" data-fan style="--fan-n:1">
+            <div class="fan__stage">
+              <div class="fan__deck">
+
+                <div class="fan__hand fan__hand--4" data-fan-hand data-trilho data-trilho-rotulo="Stories em destaque">
+                  <article class="fan__card">
+                    <a class="card__ig-top" href="https://instagram.com/abriudormiu" target="_blank"
+                      rel="noopener">
+                      <svg class="ico" aria-hidden="true">
+                        <use href="#i-instagram" />
+                      </svg>Ver vídeo no Instagram
+                    </a>
+                    <a class="reel__link" href="https://youtube.com/shorts/ooSrEejy9FM" target="_blank" rel="noopener"
+                      data-yt="ooSrEejy9FM">
+                      <figure class="frame frame--9x16">
+                        <img src="https://i.ytimg.com/vi/ooSrEejy9FM/hqdefault.jpg" alt="Story em destaque para Abriu Dormiu, gravado por Flaviana Marafoni" loading="lazy"
+                          decoding="async">
+                        <span class="reel__play" aria-hidden="true"><svg class="ico">
+                            <use href="#i-play" />
+                          </svg></span>
+                      </figure>
+                      <p class="reel__brand">@abriudormiu</p>
+                    </a>
+                    <a class="card__ig-bottom" href="https://instagram.com/flavianamarafoni" target="_blank"
+                      rel="noopener">
+                      <svg class="ico" aria-hidden="true">
+                        <use href="#i-instagram" />
+                      </svg>Acessar meu Instagram
+                    </a>
+                  </article>
+                  <article class="fan__card">
+                    <a class="card__ig-top" href="https://instagram.com/lojashotparadisees" target="_blank"
+                      rel="noopener">
+                      <svg class="ico" aria-hidden="true">
+                        <use href="#i-instagram" />
+                      </svg>Ver vídeo no Instagram
+                    </a>
+                    <a class="reel__link" href="https://youtube.com/shorts/H4iT8D2rSuw" target="_blank" rel="noopener"
+                      data-yt="H4iT8D2rSuw">
+                      <figure class="frame frame--9x16">
+                        <img src="https://i.ytimg.com/vi/H4iT8D2rSuw/hqdefault.jpg" alt="Story em destaque da Loja Hot Paradise, gravado por Flaviana Marafoni" loading="lazy"
+                          decoding="async">
+                        <span class="reel__play" aria-hidden="true"><svg class="ico">
+                            <use href="#i-play" />
+                          </svg></span>
+                      </figure>
+                      <p class="reel__brand">@lojashotparadisees</p>
+                    </a>
+                    <a class="card__ig-bottom" href="https://instagram.com/flavianamarafoni" target="_blank"
+                      rel="noopener">
+                      <svg class="ico" aria-hidden="true">
+                        <use href="#i-instagram" />
+                      </svg>Acessar meu Instagram
+                    </a>
+                  </article>
+                  <article class="fan__card">
+                    <a class="card__ig-top" href="https://instagram.com/loja_sora" target="_blank"
+                      rel="noopener">
+                      <svg class="ico" aria-hidden="true">
+                        <use href="#i-instagram" />
+                      </svg>Ver vídeo no Instagram
+                    </a>
+                    <a class="reel__link" href="https://youtube.com/shorts/CK3VOyvkcro" target="_blank" rel="noopener"
+                      data-yt="CK3VOyvkcro">
+                      <figure class="frame frame--9x16">
+                        <img src="https://i.ytimg.com/vi/CK3VOyvkcro/hqdefault.jpg" alt="Story em destaque da Loja Sora, gravado por Flaviana Marafoni" loading="lazy"
+                          decoding="async">
+                        <span class="reel__play" aria-hidden="true"><svg class="ico">
+                            <use href="#i-play" />
+                          </svg></span>
+                      </figure>
+                      <p class="reel__brand">@loja_sora</p>
+                    </a>
+                    <a class="card__ig-bottom" href="https://instagram.com/flavianamarafoni" target="_blank"
+                      rel="noopener">
+                      <svg class="ico" aria-hidden="true">
+                        <use href="#i-instagram" />
+                      </svg>Acessar meu Instagram
+                    </a>
+                  </article>
+                  <article class="fan__card">
+                    <a class="card__ig-top" href="https://instagram.com/superatacado.sempretem" target="_blank"
+                      rel="noopener">
+                      <svg class="ico" aria-hidden="true">
+                        <use href="#i-instagram" />
+                      </svg>Ver vídeo no Instagram
+                    </a>
+                    <a class="reel__link" href="https://youtube.com/shorts/_yk5HYfRLAk" target="_blank" rel="noopener"
+                      data-yt="_yk5HYfRLAk">
+                      <figure class="frame frame--9x16">
+                        <img src="https://i.ytimg.com/vi/_yk5HYfRLAk/hqdefault.jpg" alt="Story em destaque do Superatacado Sempre Tem, gravado por Flaviana Marafoni" loading="lazy"
+                          decoding="async">
+                        <span class="reel__play" aria-hidden="true"><svg class="ico">
+                            <use href="#i-play" />
+                          </svg></span>
+                      </figure>
+                      <p class="reel__brand">@superatacado.sempretem</p>
+                    </a>
+                    <a class="card__ig-bottom" href="https://instagram.com/flavianamarafoni" target="_blank"
+                      rel="noopener">
+                      <svg class="ico" aria-hidden="true">
+                        <use href="#i-instagram" />
+                      </svg>Acessar meu Instagram
+                    </a>
+                  </article>
+                </div>
+
+              </div>
+
+              <nav class="fan__nav" aria-label="Grupos de Reels">
+                <p class="fan__count"><b data-fan-atual>01</b> / 01</p>
+                <button class="fan__dot" type="button" data-fan-go="0" aria-label="Ir para o grupo 1"></button>
+              </nav>
+            </div>
+          </div>
+        </div>
+
+        <!-- ---- NICHO: CASA E DECORACAO (4) - LEQUE, mesmo padrao da 1a secao ---- -->
+        <div class="reelgroup" data-aba="Casa">
+          <div class="reelgroup__head">
+            <h3 class="rail-alvo" id="conteudo-casa">Casa e Decoração</h3>
+            <p>Móvel, enxoval e organização. Público que planeja compra grande e pesquisa antes.</p>
+          </div>
+
+          <div class="fan" data-fan style="--fan-n:1">
+            <div class="fan__stage">
+              <div class="fan__deck">
+
+                <div class="fan__hand fan__hand--4" data-fan-hand data-trilho data-trilho-rotulo="Casa e decoração">
+                  <article class="fan__card">
+                    <a class="card__ig-top" href="https://instagram.com/colormaq" target="_blank"
+                      rel="noopener">
+                      <svg class="ico" aria-hidden="true">
+                        <use href="#i-instagram" />
+                      </svg>Ver vídeo no Instagram
+                    </a>
+                    <a class="reel__link" href="https://youtube.com/shorts/ForA7T_2So4" target="_blank" rel="noopener"
+                      data-yt="ForA7T_2So4">
+                      <figure class="frame frame--9x16">
+                        <img src="https://i.ytimg.com/vi/ForA7T_2So4/hqdefault.jpg" alt="Reels de casa e decoração para Colormaq, gravado por Flaviana Marafoni" loading="lazy"
+                          decoding="async">
+                        <span class="reel__play" aria-hidden="true"><svg class="ico">
+                            <use href="#i-play" />
+                          </svg></span>
+                      </figure>
+                      <p class="reel__brand">@colormaq</p>
+                    </a>
+                    <a class="card__ig-bottom" href="https://instagram.com/flavianamarafoni" target="_blank"
+                      rel="noopener">
+                      <svg class="ico" aria-hidden="true">
+                        <use href="#i-instagram" />
+                      </svg>Acessar meu Instagram
+                    </a>
+                  </article>
+                  <article class="fan__card">
+                    <a class="card__ig-top" href="https://www.instagram.com/reel/DV9gZ9aiRlr/" target="_blank"
+                      rel="noopener">
+                      <svg class="ico" aria-hidden="true">
+                        <use href="#i-instagram" />
+                      </svg>Ver vídeo no Instagram
+                    </a>
+                    <a class="reel__link" href="https://youtube.com/shorts/wipfaFldFos" target="_blank" rel="noopener"
+                      data-yt="wipfaFldFos">
+                      <figure class="frame frame--9x16">
+                        <img src="https://i.ytimg.com/vi/wipfaFldFos/hqdefault.jpg" alt="Reels de móveis para Loja Litoral Móveis, produzido por Flaviana Marafoni" loading="lazy"
+                          decoding="async">
+                        <span class="reel__play" aria-hidden="true"><svg class="ico">
+                            <use href="#i-play" />
+                          </svg></span>
+                      </figure>
+                      <p class="reel__brand">@lojalitoral.moveis</p>
+                      <p class="reel__meta">+100 mil visualizações</p>
+                    </a>
+                    <a class="card__ig-bottom" href="https://instagram.com/flavianamarafoni" target="_blank"
+                      rel="noopener">
+                      <svg class="ico" aria-hidden="true">
+                        <use href="#i-instagram" />
+                      </svg>Acessar meu Instagram
+                    </a>
+                  </article>
+                  <article class="fan__card">
+                    <a class="card__ig-top" href="https://www.instagram.com/reel/DZdLw_5puoV/" target="_blank"
+                      rel="noopener">
+                      <svg class="ico" aria-hidden="true">
+                        <use href="#i-instagram" />
+                      </svg>Ver vídeo no Instagram
+                    </a>
+                    <a class="reel__link" href="https://youtube.com/shorts/EWP8EFtG_f0" target="_blank" rel="noopener"
+                      data-yt="EWP8EFtG_f0">
+                      <figure class="frame frame--9x16">
+                        <img src="https://i.ytimg.com/vi/EWP8EFtG_f0/hqdefault.jpg" alt="Reels de decoração para Moderna Mobília, gravado por Flaviana Marafoni" loading="lazy"
+                          decoding="async">
+                        <span class="reel__play" aria-hidden="true"><svg class="ico">
+                            <use href="#i-play" />
+                          </svg></span>
+                      </figure>
+                      <p class="reel__brand">@modernamobilia</p>
+                      <p class="reel__meta">+80 mil visualizações</p>
+                    </a>
+                    <a class="card__ig-bottom" href="https://instagram.com/flavianamarafoni" target="_blank"
+                      rel="noopener">
+                      <svg class="ico" aria-hidden="true">
+                        <use href="#i-instagram" />
+                      </svg>Acessar meu Instagram
+                    </a>
+                  </article>
+                  <article class="fan__card">
+                    <a class="card__ig-top" href="https://www.instagram.com/reel/DNBFgvosAsG/" target="_blank"
+                      rel="noopener">
+                      <svg class="ico" aria-hidden="true">
+                        <use href="#i-instagram" />
+                      </svg>Ver vídeo no Instagram
+                    </a>
+                    <a class="reel__link" href="https://youtube.com/shorts/fafY9sD0O-s" target="_blank" rel="noopener"
+                      data-yt="fafY9sD0O-s">
+                      <figure class="frame frame--9x16">
+                        <img src="https://i.ytimg.com/vi/fafY9sD0O-s/hqdefault.jpg" alt="Reels de casa e lifestyle para Momo Lifestyle, produzido por Flaviana Marafoni" loading="lazy"
+                          decoding="async">
+                        <span class="reel__play" aria-hidden="true"><svg class="ico">
+                            <use href="#i-play" />
+                          </svg></span>
+                      </figure>
+                      <p class="reel__brand">@momolifestyle</p>
+                      <p class="reel__meta">+150 mil visualizações</p>
+                    </a>
+                    <a class="card__ig-bottom" href="https://instagram.com/flavianamarafoni" target="_blank"
+                      rel="noopener">
+                      <svg class="ico" aria-hidden="true">
+                        <use href="#i-instagram" />
+                      </svg>Acessar meu Instagram
+                    </a>
+                  </article>
+                </div>
+
+              </div>
+
+              <nav class="fan__nav" aria-label="Grupos de Reels">
+                <p class="fan__count"><b data-fan-atual>01</b> / 01</p>
+                <button class="fan__dot" type="button" data-fan-go="0" aria-label="Ir para o grupo 1"></button>
+              </nav>
+            </div>
+          </div>
+        </div>
+
+        <!-- ---- NICHO: MODA E BELEZA (4) - LEQUE, mesmo padrao da 1a secao ---- -->
+        <div class="reelgroup" data-aba="Beleza">
+          <div class="reelgroup__head">
+            <h3 class="rail-alvo" id="conteudo-beleza">Moda e Beleza</h3>
+            <p>Cosmético, cabelo, unha e vestuário. Ciclo de compra curto e resposta rápida ao cupom.</p>
+          </div>
+
+          <div class="fan" data-fan style="--fan-n:1">
+            <div class="fan__stage">
+              <div class="fan__deck">
+
+                <div class="fan__hand fan__hand--4" data-fan-hand data-trilho data-trilho-rotulo="Moda e beleza">
+                  <article class="fan__card">
+                    <a class="card__ig-top" href="https://www.instagram.com/reel/DaJEA0JJ4VB/" target="_blank"
+                      rel="noopener">
+                      <svg class="ico" aria-hidden="true">
+                        <use href="#i-instagram" />
+                      </svg>Ver vídeo no Instagram
+                    </a>
+                    <a class="reel__link" href="https://youtube.com/shorts/LXC1OcRu6No" target="_blank" rel="noopener"
+                      data-yt="LXC1OcRu6No">
+                      <figure class="frame frame--9x16">
+                        <img src="https://i.ytimg.com/vi/LXC1OcRu6No/hqdefault.jpg" alt="Reels de moda e beleza para Ilumina Beauté, gravado por Flaviana Marafoni" loading="lazy"
+                          decoding="async">
+                        <span class="reel__play" aria-hidden="true"><svg class="ico">
+                            <use href="#i-play" />
+                          </svg></span>
+                      </figure>
+                      <p class="reel__brand">@iluminabeaute</p>
+                      <p class="reel__meta">+160 mil visualizações</p>
+                    </a>
+                    <a class="card__ig-bottom" href="https://instagram.com/flavianamarafoni" target="_blank"
+                      rel="noopener">
+                      <svg class="ico" aria-hidden="true">
+                        <use href="#i-instagram" />
+                      </svg>Acessar meu Instagram
+                    </a>
+                  </article>
+                  <article class="fan__card">
+                    <a class="card__ig-top" href="https://www.instagram.com/reel/DbbR1XlJ33E/" target="_blank"
+                      rel="noopener">
+                      <svg class="ico" aria-hidden="true">
+                        <use href="#i-instagram" />
+                      </svg>Ver vídeo no Instagram
+                    </a>
+                    <a class="reel__link" href="https://youtube.com/shorts/DFi7rYLA5Iw" target="_blank" rel="noopener"
+                      data-yt="DFi7rYLA5Iw">
+                      <figure class="frame frame--9x16">
+                        <img src="https://i.ytimg.com/vi/DFi7rYLA5Iw/hqdefault.jpg" alt="Reels de moda para Constace Marataízes, produzido por Flaviana Marafoni" loading="lazy"
+                          decoding="async">
+                        <span class="reel__play" aria-hidden="true"><svg class="ico">
+                            <use href="#i-play" />
+                          </svg></span>
+                      </figure>
+                      <p class="reel__brand">@constace.marataizes</p>
+                      <p class="reel__meta">+250 mil visualizações</p>
+                    </a>
+                    <a class="card__ig-bottom" href="https://instagram.com/flavianamarafoni" target="_blank"
+                      rel="noopener">
+                      <svg class="ico" aria-hidden="true">
+                        <use href="#i-instagram" />
+                      </svg>Acessar meu Instagram
+                    </a>
+                  </article>
+                  <article class="fan__card">
+                    <a class="card__ig-top" href="https://www.instagram.com/reel/DaDtp7aJ_c-/" target="_blank"
+                      rel="noopener">
+                      <svg class="ico" aria-hidden="true">
+                        <use href="#i-instagram" />
+                      </svg>Ver vídeo no Instagram
+                    </a>
+                    <a class="reel__link" href="https://youtube.com/shorts/bkBbyXzgzg0" target="_blank" rel="noopener"
+                      data-yt="bkBbyXzgzg0">
+                      <figure class="frame frame--9x16">
+                        <img src="https://i.ytimg.com/vi/bkBbyXzgzg0/hqdefault.jpg" alt="Reels de moda para Use Bob, gravado por Flaviana Marafoni" loading="lazy"
+                          decoding="async">
+                        <span class="reel__play" aria-hidden="true"><svg class="ico">
+                            <use href="#i-play" />
+                          </svg></span>
+                      </figure>
+                      <p class="reel__brand">@use.bob</p>
+                      <p class="reel__meta">+60 mil visualizações</p>
+                    </a>
+                    <a class="card__ig-bottom" href="https://instagram.com/flavianamarafoni" target="_blank"
+                      rel="noopener">
+                      <svg class="ico" aria-hidden="true">
+                        <use href="#i-instagram" />
+                      </svg>Acessar meu Instagram
+                    </a>
+                  </article>
+                  <article class="fan__card">
+                    <a class="card__ig-top" href="https://www.instagram.com/reel/DUWaAldiYN5/" target="_blank"
+                      rel="noopener">
+                      <svg class="ico" aria-hidden="true">
+                        <use href="#i-instagram" />
+                      </svg>Ver vídeo no Instagram
+                    </a>
+                    <a class="reel__link" href="https://youtube.com/shorts/UtVIyjw2qZQ" target="_blank" rel="noopener"
+                      data-yt="UtVIyjw2qZQ">
+                      <figure class="frame frame--9x16">
+                        <img src="https://i.ytimg.com/vi/UtVIyjw2qZQ/hqdefault.jpg" alt="Reels de beleza para Lola Cosmetics, produzido por Flaviana Marafoni" loading="lazy"
+                          decoding="async">
+                        <span class="reel__play" aria-hidden="true"><svg class="ico">
+                            <use href="#i-play" />
+                          </svg></span>
+                      </figure>
+                      <p class="reel__brand">@lolacosmetics</p>
+                      <p class="reel__meta">+30 mil visualizações</p>
+                    </a>
+                    <a class="card__ig-bottom" href="https://instagram.com/flavianamarafoni" target="_blank"
+                      rel="noopener">
+                      <svg class="ico" aria-hidden="true">
+                        <use href="#i-instagram" />
+                      </svg>Acessar meu Instagram
+                    </a>
+                  </article>
+                </div>
+
+              </div>
+
+              <nav class="fan__nav" aria-label="Grupos de Reels">
+                <p class="fan__count"><b data-fan-atual>01</b> / 01</p>
+                <button class="fan__dot" type="button" data-fan-go="0" aria-label="Ir para o grupo 1"></button>
+              </nav>
+            </div>
+          </div>
+        </div>
+
+        <!-- ---- NICHO: GASTRONOMIA E LIFESTYLE (4) - LEQUE, mesmo padrao da 1a secao ---- -->
+        <div class="reelgroup" data-aba="Gastronomia">
+          <div class="reelgroup__head">
+            <h3 class="rail-alvo" id="conteudo-gastronomia">Gastronomia e Lifestyle</h3>
+            <p>Restaurante, mercado, delivery e lazer. Conteúdo que enche a casa no fim de semana.</p>
+          </div>
+
+          <div class="fan" data-fan style="--fan-n:1">
+            <div class="fan__stage">
+              <div class="fan__deck">
+
+                <div class="fan__hand fan__hand--4" data-fan-hand data-trilho data-trilho-rotulo="Gastronomia e lifestyle">
+                  <article class="fan__card">
+                    <a class="card__ig-top" href="https://www.instagram.com/reel/DMoLswTyOEM/" target="_blank"
+                      rel="noopener">
+                      <svg class="ico" aria-hidden="true">
+                        <use href="#i-instagram" />
+                      </svg>Ver vídeo no Instagram
+                    </a>
+                    <a class="reel__link" href="https://youtube.com/shorts/MHINHisSVoE" target="_blank" rel="noopener"
+                      data-yt="MHINHisSVoE">
+                      <figure class="frame frame--9x16">
+                        <img src="https://i.ytimg.com/vi/MHINHisSVoE/hqdefault.jpg" alt="Reels de gastronomia para Jessé Éden Brasa e Sabor, gravado por Flaviana Marafoni" loading="lazy"
+                          decoding="async">
+                        <span class="reel__play" aria-hidden="true"><svg class="ico">
+                            <use href="#i-play" />
+                          </svg></span>
+                      </figure>
+                      <p class="reel__brand">@jesseedenbrasaesabor</p>
+                      <p class="reel__meta">+140 mil visualizações</p>
+                    </a>
+                    <a class="card__ig-bottom" href="https://instagram.com/flavianamarafoni" target="_blank"
+                      rel="noopener">
+                      <svg class="ico" aria-hidden="true">
+                        <use href="#i-instagram" />
+                      </svg>Acessar meu Instagram
+                    </a>
+                  </article>
+                  <article class="fan__card">
+                    <a class="card__ig-top" href="https://www.instagram.com/reel/DcCJglxxhmo/" target="_blank"
+                      rel="noopener">
+                      <svg class="ico" aria-hidden="true">
+                        <use href="#i-instagram" />
+                      </svg>Ver vídeo no Instagram
+                    </a>
+                    <a class="reel__link" href="https://youtube.com/shorts/OYxvglZXmLg" target="_blank" rel="noopener"
+                      data-yt="OYxvglZXmLg">
+                      <figure class="frame frame--9x16">
+                        <img src="https://i.ytimg.com/vi/OYxvglZXmLg/hqdefault.jpg" alt="Reels de gastronomia para Banzai Sushi Marataízes, produzido por Flaviana Marafoni" loading="lazy"
+                          decoding="async">
+                        <span class="reel__play" aria-hidden="true"><svg class="ico">
+                            <use href="#i-play" />
+                          </svg></span>
+                      </figure>
+                      <p class="reel__brand">@banzaisushimarataizes</p>
+                      <p class="reel__meta">+100 mil visualizações</p>
+                    </a>
+                    <a class="card__ig-bottom" href="https://instagram.com/flavianamarafoni" target="_blank"
+                      rel="noopener">
+                      <svg class="ico" aria-hidden="true">
+                        <use href="#i-instagram" />
+                      </svg>Acessar meu Instagram
+                    </a>
+                  </article>
+                  <article class="fan__card">
+                    <a class="card__ig-top" href="https://www.instagram.com/reel/DatALpVpe9v/" target="_blank"
+                      rel="noopener">
+                      <svg class="ico" aria-hidden="true">
+                        <use href="#i-instagram" />
+                      </svg>Ver vídeo no Instagram
+                    </a>
+                    <a class="reel__link" href="https://youtube.com/shorts/a9HJ1useZhA" target="_blank" rel="noopener"
+                      data-yt="a9HJ1useZhA">
+                      <figure class="frame frame--9x16">
+                        <img src="https://i.ytimg.com/vi/a9HJ1useZhA/hqdefault.jpg" alt="Reels de lifestyle para Sítio Mardegan, gravado por Flaviana Marafoni" loading="lazy"
+                          decoding="async">
+                        <span class="reel__play" aria-hidden="true"><svg class="ico">
+                            <use href="#i-play" />
+                          </svg></span>
+                      </figure>
+                      <p class="reel__brand">@sitiomardegan</p>
+                      <p class="reel__meta">+100 mil visualizações</p>
+                    </a>
+                    <a class="card__ig-bottom" href="https://instagram.com/flavianamarafoni" target="_blank"
+                      rel="noopener">
+                      <svg class="ico" aria-hidden="true">
+                        <use href="#i-instagram" />
+                      </svg>Acessar meu Instagram
+                    </a>
+                  </article>
+                  <article class="fan__card">
+                    <a class="card__ig-top" href="https://www.instagram.com/reel/DVMa4sMicZf/" target="_blank"
+                      rel="noopener">
+                      <svg class="ico" aria-hidden="true">
+                        <use href="#i-instagram" />
+                      </svg>Ver vídeo no Instagram
+                    </a>
+                    <a class="reel__link" href="https://youtube.com/shorts/LbNIOCFwDs0" target="_blank" rel="noopener"
+                      data-yt="LbNIOCFwDs0">
+                      <figure class="frame frame--9x16">
+                        <img src="https://i.ytimg.com/vi/LbNIOCFwDs0/hqdefault.jpg" alt="Vlog Tijolinho por Tijolinho, produzido por Flaviana Marafoni" loading="lazy"
+                          decoding="async">
+                        <span class="reel__play" aria-hidden="true"><svg class="ico">
+                            <use href="#i-play" />
+                          </svg></span>
+                      </figure>
+                      <p class="reel__brand">Vlog Tijolinho por Tijolinho</p>
+                      <p class="reel__meta">+200 mil visualizações</p>
+                    </a>
+                    <a class="card__ig-bottom" href="https://instagram.com/flavianamarafoni" target="_blank"
+                      rel="noopener">
+                      <svg class="ico" aria-hidden="true">
+                        <use href="#i-instagram" />
+                      </svg>Acessar meu Instagram
+                    </a>
+                  </article>
+                </div>
+
+              </div>
+
+              <nav class="fan__nav" aria-label="Grupos de Reels">
+                <p class="fan__count"><b data-fan-atual>01</b> / 01</p>
+                <button class="fan__dot" type="button" data-fan-go="0" aria-label="Ir para o grupo 1"></button>
+              </nav>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ============ INVESTIMENTO ============ -->
+    <section class="section section--alt" id="investimento">
+      <div class="container">
+        <div class="section__head">
+          <p class="kicker">04 · Investimento</p>
+          <h2>O que dá para contratar e <em>quanto</em> custa.</h2>
+          <p class="section__lede">Preço fechado, sem reunião para descobrir o valor. Gravação em casa custa menos que
+            gravação na sua loja porque envolve deslocamento e mais tempo de produção.</p>
+          <a class="btn btn--sm"
+            href="https://wa.me/5528999418357?text=Oi%20Flaviana%2C%20vi%20seu%20portf%C3%B3lio%20e%20quero%20um%20or%C3%A7amento"
+            target="_blank" rel="noopener">Falar no WhatsApp</a>
+        </div>
+
+        <div class="cards">
+
+          <article class="card card--featured" data-aba="Combos">
+            <span class="badge">Melhor custo-benefício</span>
+            <svg class="card__ico" aria-hidden="true">
+              <use href="#i-combo" />
+            </svg>
+            <h3 class="rail-alvo" id="preco-combos">Combos</h3>
+            <p>Reels e Stories no mesmo pacote. Mais presença, reforço da mensagem e mais conversão, com preço abaixo do
+              avulso.</p>
+            <ul class="ticks">
+              <li><svg class="ico" aria-hidden="true">
+                  <use href="#i-check" />
+                </svg>Maior presença da marca</li>
+              <li><svg class="ico" aria-hidden="true">
+                  <use href="#i-check" />
+                </svg>Reforço de mensagem e ganho de clientes</li>
+              <li><svg class="ico" aria-hidden="true">
+                  <use href="#i-check" />
+                </svg>Aumento de confiança e conversão</li>
+            </ul>
+            <dl class="pricelist">
+              <div>
+                <dt>1 Reels + 1 combo de Stories (em casa)</dt>
+                <dd>R$ 360</dd>
+              </div>
+              <div>
+                <dt>1 Reels + 1 combo de Stories (no local)</dt>
+                <dd>R$ 450</dd>
+              </div>
+              <div>
+                <dt>1 Reels + 3 combos de Stories (em casa)</dt>
+                <dd>R$ 520</dd>
+              </div>
+              <div>
+                <dt>1 Reels + 2 combos de Stories (no local)</dt>
+                <dd>R$ 650</dd>
+              </div>
+              <div>
+                <dt>1 Reels + 3 combos de Stories (no local)</dt>
+                <dd>R$ 750</dd>
+              </div>
+            </dl>
+          </article>
+
+          <article class="card" data-aba="Stories">
+            <svg class="card__ico" aria-hidden="true">
+              <use href="#i-stories" />
+            </svg>
+            <h3 class="rail-alvo" id="preco-stories">Stories</h3>
+            <p>Sequência de Stories com fala espontânea, demonstração do produto e chamada para ação.</p>
+            <ul class="ticks">
+              <li><svg class="ico" aria-hidden="true">
+                  <use href="#i-check" />
+                </svg>Fala espontânea e demonstração</li>
+              <li><svg class="ico" aria-hidden="true">
+                  <use href="#i-check" />
+                </svg>CTA com link, cupom ou localização</li>
+              <li><svg class="ico" aria-hidden="true">
+                  <use href="#i-check" />
+                </svg>Foco em proximidade e conversão rápida</li>
+            </ul>
+            <dl class="pricelist">
+              <div>
+                <dt>Em casa</dt>
+                <dd>R$ 100</dd>
+              </div>
+              <div>
+                <dt>Na sua loja</dt>
+                <dd>R$ 200</dd>
+              </div>
+            </dl>
+          </article>
+
+          <article class="card" data-aba="Reels">
+            <svg class="card__ico" aria-hidden="true">
+              <use href="#i-reels" />
+            </svg>
+            <h3 class="rail-alvo" id="preco-reels">Reels</h3>
+            <p>Roteiro, gravação e edição de um Reels publicado no feed. Pode sair em colab com o perfil da marca.</p>
+            <ul class="ticks">
+              <li><svg class="ico" aria-hidden="true">
+                  <use href="#i-check" />
+                </svg>Roteiro, gravação e edição</li>
+              <li><svg class="ico" aria-hidden="true">
+                  <use href="#i-check" />
+                </svg>Publicação em colab com a marca</li>
+              <li><svg class="ico" aria-hidden="true">
+                  <use href="#i-check" />
+                </svg>Alto alcance e ganho de novos seguidores</li>
+            </ul>
+            <dl class="pricelist">
+              <div>
+                <dt>Em casa</dt>
+                <dd>R$ 300</dd>
+              </div>
+              <div>
+                <dt>Na sua loja</dt>
+                <dd>R$ 500</dd>
+              </div>
+            </dl>
+          </article>
+
+        </div>
+
+        <div class="extras">
+          <h3 class="rail-alvo" id="preco-outros">Outras opções</h3>
+          <div class="extras__grid" data-trilho data-trilho-rotulo="Outras opções">
+            <div>
+              <h4>Campanha personalizada</h4>
+              <p>Formatos maiores e estratégia específica para a marca. Me manda o briefing que eu monto a proposta.</p>
+            </div>
+            <div>
+              <h4>Permuta</h4>
+              <p>Aceito. Os valores podem ser convertidos em produtos ou serviços, de acordo com a proposta.</p>
+            </div>
+            <div>
+              <h4>Contrato mensal</h4>
+              <p>Para marcas que querem consistência e presença ao longo do tempo, em vez de uma publi solta.</p>
+            </div>
+            <div>
+              <h4>Nota fiscal</h4>
+              <p>Emito nota fiscal para quem precisa, sem custo extra no orçamento.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ CASES ============ -->
+    <section class="section" id="cases">
+      <div class="container">
+        <div class="section__head">
+          <p class="kicker">05 · Resultados</p>
+          <h2>Onde posicionamento encontra <em>performance</em>.</h2>
+          <p class="section__lede">Campanhas com cupom rastreado. O número em destaque é o que a marca fechou, não o
+            que o post alcançou.</p>
+          <a class="btn btn--sm" href="#marcas">Ver marcas</a>
+        </div>
+
+        <!-- ---- ALCANCE ---- -->
+        <div class="reach">
+          <h3 class="reach__title rail-alvo" id="cases-alcance">Alcance</h3>
+          <div class="reach__grid" data-trilho data-trilho-rotulo="Alcance">
+            <div class="reach__item">
+              <p class="reach__num">+5 mi</p>
+              <p class="reach__label">Alcance mensal no perfil</p>
+              <p class="reach__note">Mais de cinco milhões de contas alcançadas por mês, somando Instagram e TikTok.</p>
+            </div>
+            <div class="reach__item">
+              <p class="reach__num">+300 mil</p>
+              <p class="reach__label">Visualizações orgânicas</p>
+              <p class="reach__note">Conteúdo orgânico, sem impulsionamento, com engajamento consistente.</p>
+            </div>
+            <div class="reach__item">
+              <p class="reach__num">65 mil</p>
+              <p class="reach__label">Seguidores</p>
+              <p class="reach__note">50 mil no Instagram e 15 mil no TikTok, concentrados no litoral sul do ES.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Cases sem foto: o numero e a prova. Cada card abre a memoria de calculo
+         no clique (<details> nativo - funciona sem JS e com teclado). -->
+        <div class="cases" data-trilho data-trilho-rotulo="Cases com cupom rastreado">
+
+          <details class="case">
+            <summary class="case__head">
+              <span class="case__idx">01</span>
+              <span class="case__brand">Appel Home<span>Casa e decoração</span></span>
+              <span class="case__metric">5 <em>pedidos</em></span>
+              <span class="case__more">
+                <span class="case__more-txt">Memória de cálculo</span>
+                <svg class="ico" aria-hidden="true">
+                  <use href="#i-plus" />
+                </svg>
+              </span>
+            </summary>
+            <div class="case__body">
+              <dl class="case__facts">
+                <div>
+                  <dt>Ticket médio</dt>
+                  <dd>R$ 680 – R$ 1.000</dd>
+                </div>
+                <div>
+                  <dt>Faturamento estimado</dt>
+                  <dd>R$ 1.986 – R$ 6.000</dd>
+                </div>
+                <div>
+                  <dt>Rastreio</dt>
+                  <dd>Cupom exclusivo</dd>
+                </div>
+              </dl>
+            </div>
+          </details>
+
+          <details class="case">
+            <summary class="case__head">
+              <span class="case__idx">02</span>
+              <span class="case__brand">Momo Lifestyle<span>Lifestyle</span></span>
+              <span class="case__metric">R$ 1.998<em>,97</em></span>
+              <span class="case__more">
+                <span class="case__more-txt">Memória de cálculo</span>
+                <svg class="ico" aria-hidden="true">
+                  <use href="#i-plus" />
+                </svg>
+              </span>
+            </summary>
+            <div class="case__body">
+              <dl class="case__facts">
+                <div>
+                  <dt>Conversões</dt>
+                  <dd>5 vendas diretas</dd>
+                </div>
+                <div>
+                  <dt>Canais</dt>
+                  <dd>Instagram + TikTok</dd>
+                </div>
+                <div>
+                  <dt>Rastreio</dt>
+                  <dd>Cupom exclusivo</dd>
+                </div>
+              </dl>
+            </div>
+          </details>
+
+          <details class="case">
+            <summary class="case__head">
+              <span class="case__idx">03</span>
+              <span class="case__brand">Apaixone &amp; Decore<span>Casa e decoração</span></span>
+              <span class="case__metric">R$ 2,5–7 <em>mil</em></span>
+              <span class="case__more">
+                <span class="case__more-txt">Memória de cálculo</span>
+                <svg class="ico" aria-hidden="true">
+                  <use href="#i-plus" />
+                </svg>
+              </span>
+            </summary>
+            <div class="case__body">
+              <dl class="case__facts">
+                <div>
+                  <dt>Ticket médio</dt>
+                  <dd>R$ 2.567,80 – R$ 7.000</dd>
+                </div>
+                <div>
+                  <dt>Pedidos</dt>
+                  <dd>Múltiplos na campanha</dd>
+                </div>
+                <div>
+                  <dt>Rastreio</dt>
+                  <dd>Cupom exclusivo</dd>
+                </div>
+              </dl>
+            </div>
+          </details>
+
+        </div>
+
+        <!-- ---- FEEDBACKS ----
+         O midia kit traz os prints das conversas, mas sem texto transcrito.
+         Duas coisas para preencher em cada card:
+           1) o <img> do print  -> img/feedbacks/*.jpg (comentado abaixo)
+           2) a <blockquote>    -> a frase transcrita do print
+         Se preferir mostrar so o print, apague a <blockquote> e mantenha a figure. -->
+        <div class="feedbacks">
+          <h3 class="feedbacks__title rail-alvo" id="cases-feedbacks">Feedbacks das marcas</h3>
+          <p class="feedbacks__lede">O que chega no direct depois que a campanha vai ao ar.</p>
+
+          <div class="feedbacks__grid" data-trilho data-trilho-rotulo="Feedbacks das marcas">
+
+            <figure class="feedback">
+              <svg class="feedback__ico" aria-hidden="true">
+                <use href="#i-quote" />
+              </svg>
+              <blockquote>&ldquo;Nossa direção nos deu um retorno e amaram o seu conteúdo! Você é DEMAIS!&rdquo;</blockquote>
+              <div class="frame frame--print" data-frame="img/feedback-ilumina.jpg">
+                <a class="frame__zoom" href="img/feedback-ilumina.jpg" data-fancybox="prints"
+                  data-caption="@iluminabeaute, Moda e Beleza" aria-label="Ampliar print de @iluminabeaute">
+                  <img src="img/feedback-ilumina.jpg" alt="Print do feedback de @iluminabeaute" width="900"
+                    height="600">
+                  <span class="frame__zoom-ico"><svg class="ico" aria-hidden="true">
+                      <use href="#i-zoom" />
+                    </svg>Ver print</span>
+                </a>
+              </div>
+              <figcaption>@iluminabeaute<span>Moda e Beleza</span></figcaption>
+            </figure>
+
+            <figure class="feedback">
+              <svg class="feedback__ico" aria-hidden="true">
+                <use href="#i-quote" />
+              </svg>
+              <blockquote>&ldquo;Adoramos o seu vídeo! Queríamos saber se podemos compartilhá-lo em nossas outras redes sociais.&rdquo;</blockquote>
+              <div class="frame frame--print" data-frame="img/feedback-momo.webp">
+                <a class="frame__zoom" href="img/feedback-momo.webp" data-fancybox="prints"
+                  data-caption="@momolifestylebr, Casa e Decoração" aria-label="Ampliar print de @momolifestylebr">
+                  <img src="img/feedback-momo.webp" alt="Print do feedback de @momolifestylebr" width="900"
+                    height="600">
+                  <span class="frame__zoom-ico"><svg class="ico" aria-hidden="true">
+                      <use href="#i-zoom" />
+                    </svg>Ver print</span>
+                </a>
+              </div>
+              <figcaption>@momolifestylebr<span>Casa e Decoração</span></figcaption>
+            </figure>
+
+            <figure class="feedback">
+              <svg class="feedback__ico" aria-hidden="true">
+                <use href="#i-quote" />
+              </svg>
+              <blockquote>&ldquo;Ficou maravilhoso, show de bola! Amei, chegou bastante gente aí.&rdquo;</blockquote>
+              <div class="frame frame--print" data-frame="img/feedback-litoral.webp">
+                <a class="frame__zoom" href="img/feedback-litoral.webp" data-fancybox="prints"
+                  data-caption="@litoral.moveis, Casa e Decoração" aria-label="Ampliar print de @litoral.moveis">
+                  <img src="img/feedback-litoral.webp" alt="Print do feedback de @litoral.moveis" width="900"
+                    height="600">
+                  <span class="frame__zoom-ico"><svg class="ico" aria-hidden="true">
+                      <use href="#i-zoom" />
+                    </svg>Ver print</span>
+                </a>
+              </div>
+              <figcaption>@litoral.moveis<span>Casa e Decoração</span></figcaption>
+            </figure>
+
+            <figure class="feedback">
+              <svg class="feedback__ico" aria-hidden="true">
+                <use href="#i-quote" />
+              </svg>
+              <blockquote>&ldquo;Excelente! Parabéns pelo seu trabalho!&rdquo;</blockquote>
+              <div class="frame frame--print" data-frame="img/feedback-hotparadise.jpeg">
+                <a class="frame__zoom" href="img/feedback-hotparadise.jpeg" data-fancybox="prints"
+                  data-caption="@lojashotparadisees, Moda" aria-label="Ampliar print de @lojashotparadisees">
+                  <img src="img/feedback-hotparadise.jpeg" alt="Print do feedback de @lojashotparadisees" width="900"
+                    height="600">
+                  <span class="frame__zoom-ico"><svg class="ico" aria-hidden="true">
+                      <use href="#i-zoom" />
+                    </svg>Ver print</span>
+                </a>
+              </div>
+              <figcaption>@lojashotparadisees<span>Moda</span></figcaption>
+            </figure>
+
+            <figure class="feedback">
+              <svg class="feedback__ico" aria-hidden="true">
+                <use href="#i-quote" />
+              </svg>
+              <blockquote>&ldquo;Nós que agradecemos pelo trabalho incrível, pode ter certeza que iremos fechar mais trabalhos futuramente!&rdquo;</blockquote>
+              <div class="frame frame--print" data-frame="img/feedback-sempre-tem.jpeg">
+                <a class="frame__zoom" href="img/feedback-sempre-tem.jpeg" data-fancybox="prints"
+                  data-caption="@superatacado.sempretem, Gastronomia e Lifestyle" aria-label="Ampliar print de @superatacado.sempretem">
+                  <img src="img/feedback-sempre-tem.jpeg" alt="Print do feedback de @superatacado.sempretem" width="900"
+                    height="600">
+                  <span class="frame__zoom-ico"><svg class="ico" aria-hidden="true">
+                      <use href="#i-zoom" />
+                    </svg>Ver print</span>
+                </a>
+              </div>
+              <figcaption>@superatacado.sempretem<span>Gastronomia e Lifestyle</span></figcaption>
+            </figure>
+
+            <figure class="feedback">
+              <svg class="feedback__ico" aria-hidden="true">
+                <use href="#i-quote" />
+              </svg>
+              <blockquote>&ldquo;Bommmm dia meu amor, eu ameiiii, ficaram ótimos!&rdquo;</blockquote>
+              <div class="frame frame--print" data-frame="img/feedback-sora.jpeg">
+                <a class="frame__zoom" href="img/feedback-sora.jpeg" data-fancybox="prints"
+                  data-caption="@loja_sora, Moda Infantil" aria-label="Ampliar print de @loja_sora">
+                  <img src="img/feedback-sora.jpeg" alt="Print do feedback de @loja_sora" width="900"
+                    height="600">
+                  <span class="frame__zoom-ico"><svg class="ico" aria-hidden="true">
+                      <use href="#i-zoom" />
+                    </svg>Ver print</span>
+                </a>
+              </div>
+              <figcaption>@loja_sora<span>Moda Infantil</span></figcaption>
+            </figure>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ GRID DE MARCAS ============ -->
+    <section class="section section--rule" id="marcas">
+      <div class="container">
+        <div class="section__head">
+          <p class="kicker">06 · Marcas</p>
+          <h2>+100 marcas <em>já</em> anunciaram comigo.</h2>
+          <p class="section__lede">De supermercado de bairro a Shein, L&rsquo;Oréal e Dove: marca local e marca
+            nacional confiam no meu conteúdo. 91 delas estão aqui.</p>
+        </div>
+        <!-- No desktop e o campo de chips que sempre foi. No mobile ele vira um
+             CAMPO DEITADO: quatro fileiras que correm para o lado em vez de 36
+             fileiras empilhadas. Nenhuma marca sai da pagina - so muda o eixo. -->
+        <ul class="chips" data-campo>
+          <li class="chip">@abriudormiu</li>
+          <li class="chip">@acaidochefmarataizes</li>
+          <li class="chip">@ananeire-atelie</li>
+          <li class="chip">@apaixoneedecore</li>
+          <li class="chip">@appel.home</li>
+          <li class="chip">@banzaishushi</li>
+          <li class="chip">@beltratcomesticos</li>
+          <li class="chip">@biancaf_nails</li>
+          <li class="chip">@brasil_curso</li>
+          <li class="chip">@brava_wood</li>
+          <li class="chip">@caixatomada</li>
+          <li class="chip">@casaevideo</li>
+          <li class="chip">@casulohygienize</li>
+          <li class="chip">@cavanestofados</li>
+          <li class="chip">@ciadomarmarataizes</li>
+          <li class="chip">@circoorlandooficial</li>
+          <li class="chip">@colibrifestases</li>
+          <li class="chip">@colormaq</li>
+          <li class="chip">@Confortdoor</li>
+          <li class="chip">@constance.marataizes</li>
+          <li class="chip">@day_tropical</li>
+          <li class="chip">@designergessicawanguestel</li>
+          <li class="chip">@dmaischikenfrito</li>
+          <li class="chip">@dovebrasil</li>
+          <li class="chip">@espetacularmegashow</li>
+          <li class="chip">@espaco_comemorar</li>
+          <li class="chip">@espaco_maos_de_fada30</li>
+          <li class="chip">@fabelaaromas</li>
+          <li class="chip">@fran_bayerl_nails</li>
+          <li class="chip">@gabrielmoraes_bass</li>
+          <li class="chip">@gocasebr</li>
+          <li class="chip">@grupo.goold</li>
+          <li class="chip">@hairlucas_bernardo</li>
+          <li class="chip">@hayup.brasil</li>
+          <li class="chip">@hotparadiseoficiales</li>
+          <li class="chip">@iluminabeaute</li>
+          <li class="chip">@jeitodesersemijois</li>
+          <li class="chip">@jesseednbrasaesabor</li>
+          <li class="chip">@kaimanavaa.br</li>
+          <li class="chip">@kerasysbrasil</li>
+          <li class="chip">@krt.natumed</li>
+          <li class="chip">@livia_coelho_</li>
+          <li class="chip">@lojasmart.com2021</li>
+          <li class="chip">@litoral.moveis</li>
+          <li class="chip">@loja_sora</li>
+          <li class="chip">@lolacosmetics</li>
+          <li class="chip">@longmoda18</li>
+          <li class="chip">@lorealparias</li>
+          <li class="chip">@luvlette</li>
+          <li class="chip">@magiccoloroficial</li>
+          <li class="chip">@maju_nails</li>
+          <li class="chip">@manuella_lashdesigner</li>
+          <li class="chip">@mercadaomoda.marataizes</li>
+          <li class="chip">@mirianporto.nail</li>
+          <li class="chip">@miriel_ramos</li>
+          <li class="chip">@modernamobilia</li>
+          <li class="chip">@momolifestylebr</li>
+          <li class="chip">@nutri.amandorim</li>
+          <li class="chip">@omobrasil</li>
+          <li class="chip">@or.eyewear</li>
+          <li class="chip">@oticadinamicavila</li>
+          <li class="chip">@outlett_30</li>
+          <li class="chip">@ozemonte_make</li>
+          <li class="chip">@padariaitapemirim</li>
+          <li class="chip">@pamela_tupper</li>
+          <li class="chip">@pantenebrasil</li>
+          <li class="chip">@pausanadieta</li>
+          <li class="chip">@penafamacalcados</li>
+          <li class="chip">@poderverde_br</li>
+          <li class="chip">@restaurante_capitaogancho</li>
+          <li class="chip">@saboritodelivery</li>
+          <li class="chip">@saceladybr</li>
+          <li class="chip">@salsalanchesmarataizes</li>
+          <li class="chip">@sheglam_official</li>
+          <li class="chip">@sheinoficial</li>
+          <li class="chip">@shopee_br</li>
+          <li class="chip">@silveiratour</li>
+          <li class="chip">@sitiomardegan</li>
+          <li class="chip">@sitiomaravilhoso</li>
+          <li class="chip">@sr.costela_marataizes</li>
+          <li class="chip">@superatacado.sempretem</li>
+          <li class="chip">@supermercado_vieirao</li>
+          <li class="chip">@terra.flora</li>
+          <li class="chip">@thermas.es</li>
+          <li class="chip">@thinairrozamakeup</li>
+          <li class="chip">@toalhasshow</li>
+          <li class="chip">@todafofurinha</li>
+          <li class="chip">@use.bob</li>
+          <li class="chip">@useoazy</li>
+          <li class="chip">@valentinamarataizes</li>
+          <li class="chip">@zoostoreoficial</li>
+        </ul>
+        <p class="chips__dica"><svg class="ico" aria-hidden="true">
+            <use href="#i-arrastar" />
+          </svg>Arraste para o lado para ver todas</p>
+      </div>
+    </section>
+
+    <!-- ============ FAQ ============ -->
+    <section class="section section--alt" id="faq">
+      <div class="container container--narrow">
+        <div class="section__head">
+          <p class="kicker">07 · Dúvidas</p>
+          <h2>Antes de me <em>chamar</em>.</h2>
+        </div>
+
+        <!-- ATENCAO ao mexer aqui: estas perguntas estao espelhadas no FAQPage
+             (JSON-LD, no <head>). O Google so mostra o rich result de FAQ se a
+             pergunta E a resposta estiverem VISIVEIS na pagina, com o mesmo texto.
+             Editou aqui, edita la tambem - e vice-versa.
+             As quatro primeiras existem porque sao exatamente o que a marca
+             digita no Google: "quanto custa publi com influenciador",
+             "influenciadora digital em Marataizes", "influenciadora de decoracao ES". -->
+
+        <details data-duvida="precos">
+          <summary>Quanto custa uma publi com a Flaviana Marafoni?<svg class="ico ico--toggle" aria-hidden="true">
+              <use href="#i-plus" />
+            </svg></summary>
+          <p>Os valores são fechados e estão publicados na tabela. Stories custa R$ 100 gravado em casa e R$ 200 gravado
+            na sua loja. Reels custa R$ 300 em casa e R$ 500 no local. Os combos de Reels + Stories vão de R$ 360 a R$
+            750 e saem abaixo do avulso. Campanhas personalizadas e contratos mensais são orçados sob briefing.</p>
+        </details>
+
+        <details data-duvida="atendimento">
+          <summary>Quais cidades a Flaviana Marafoni atende?<svg class="ico ico--toggle" aria-hidden="true">
+              <use href="#i-plus" />
+            </svg></summary>
+          <p>A base é Marataízes, no litoral sul do Espírito Santo. Ela grava também em Itapemirim, Presidente Kennedy,
+            Piúma, Anchieta, Iconha, Rio Novo do Sul, Cachoeiro de Itapemirim e Guarapari. Marcas nacionais são
+            atendidas de qualquer lugar do Brasil, com gravação em casa e envio do produto.</p>
+        </details>
+
+        <details data-duvida="perfil">
+          <summary>Quais nichos de marca ela trabalha?<svg class="ico ico--toggle" aria-hidden="true">
+              <use href="#i-plus" />
+            </svg></summary>
+          <p>Três frentes, cada uma com audiência própria dentro do perfil: casa e decoração (móvel, enxoval,
+            organização e reforma), moda e beleza (cosmético, cabelo, unha e vestuário) e gastronomia e lifestyle
+            (restaurante, mercado, delivery e lazer).</p>
+        </details>
+
+        <details data-duvida="perfil">
+          <summary>Qual é o alcance do perfil da Flaviana Marafoni?<svg class="ico ico--toggle" aria-hidden="true">
+              <use href="#i-plus" />
+            </svg></summary>
+          <p>Mais de 5 milhões de contas alcançadas por mês somando Instagram e TikTok, mais de 300 mil visualizações
+            orgânicas e 65 mil seguidores: 50 mil no Instagram e 15 mil no TikTok, concentrados no litoral sul do
+            Espírito Santo.</p>
+        </details>
+
+        <details data-duvida="precos">
+          <summary>Você aceita permuta?<svg class="ico ico--toggle" aria-hidden="true">
+              <use href="#i-plus" />
+            </svg></summary>
+          <p>Aceito. Os valores podem ser convertidos em produtos ou serviços, de acordo com a proposta. Me manda o que
+            você tem em mente que a gente ajusta.</p>
+        </details>
+
+        <details data-duvida="atendimento">
+          <summary>Você grava na minha loja?<svg class="ico ico--toggle" aria-hidden="true">
+              <use href="#i-plus" />
+            </svg></summary>
+          <p>Gravo. A diferença de valor entre &ldquo;em casa&rdquo; e &ldquo;no local&rdquo; cobre o deslocamento e o
+            tempo maior de produção: Story sai R$ 200 e Reels R$ 500 quando eu vou até você. Atendo Marataízes e a
+            região do litoral sul do Espírito Santo.</p>
+        </details>
+
+        <details data-duvida="precos">
+          <summary>Dá para fechar por mês, em vez de publi avulsa?<svg class="ico ico--toggle" aria-hidden="true">
+              <use href="#i-plus" />
+            </svg></summary>
+          <p>Dá, e costuma render mais. Trabalho com contratos mensais para marcas que querem consistência e presença ao
+            longo do tempo: a audiência passa a associar a marca ao perfil, e não só a lembrar de um post isolado.</p>
+        </details>
+
+        <details data-duvida="atendimento">
+          <summary>Meu produto não encaixa em nenhum formato da tabela.<svg class="ico ico--toggle" aria-hidden="true">
+              <use href="#i-plus" />
+            </svg></summary>
+          <p>Então a gente monta uma campanha personalizada, com formato maior e estratégia específica para a sua marca.
+            Me manda o briefing e eu volto com a proposta.</p>
+        </details>
+
+        <details data-duvida="atendimento">
+          <summary>Em quanto tempo o conteúdo fica pronto?<svg class="ico ico--toggle" aria-hidden="true">
+              <use href="#i-plus" />
+            </svg></summary>
+          <p>Em média, gravo em até 5 dias úteis após receber todas as informações e/ou produtos da marca, e publico em
+            até 3 dias úteis, ou conforme o calendário combinado com você. O pacote já inclui 1 rodada de ajustes no
+            conteúdo final, quando necessário.</p>
+        </details>
+
+        <details data-duvida="precos">
+          <summary>Como funciona o pagamento?<svg class="ico ico--toggle" aria-hidden="true">
+              <use href="#i-plus" />
+            </svg></summary>
+          <p>O pagamento é feito via Pix ou dinheiro físico, conforme as condições acordadas no fechamento da
+            parceria. Para campanhas e projetos maiores, trabalho com 50% de sinal na confirmação e 50% na
+            entrega/publicação do conteúdo. Para ações pontuais, a forma de pagamento pode ser ajustada de acordo com
+            o projeto. Emito nota fiscal para quem precisa, sem custo extra.</p>
+        </details>
+
+        <details data-duvida="precos">
+          <summary>Você emite nota fiscal?<svg class="ico ico--toggle" aria-hidden="true">
+              <use href="#i-plus" />
+            </svg></summary>
+          <p>Emito. Sou MEI e emito nota fiscal para a marca que precisa, sem custo extra no orçamento fechado.</p>
+        </details>
+
+        <details data-duvida="perfil">
+          <summary>Qual é o perfil do público que acompanha a Flaviana Marafoni?<svg class="ico ico--toggle"
+              aria-hidden="true">
+              <use href="#i-plus" />
+            </svg></summary>
+          <p>63,7% mulheres e 36,3% homens, segundo o Instagram Insights. As principais cidades são Marataízes
+            (19,4%), Cachoeiro de Itapemirim (10,8%), Itapemirim (7,1%) e Serra (4,8%), com o restante distribuído
+            pelo Espírito Santo e pelo Brasil.</p>
+        </details>
+      </div>
+    </section>
+
+    <!-- ============ CTA FINAL ============ -->
+    <section class="cta-final" id="contato">
+      <div class="container container--narrow">
+        <p class="kicker">08 · Vamos fechar</p>
+        <h2>Sua marca pode ser a <em>próxima</em> com resultado no cupom.</h2>
+        <p>Me conta o que você vende e para quando precisa. Eu volto com a proposta e o formato que faz mais sentido
+          para o seu momento.</p>
+        <a class="btn btn--lg"
+          href="https://wa.me/5528999418357?text=Oi%20Flaviana%2C%20vi%20seu%20portf%C3%B3lio%20e%20quero%20um%20or%C3%A7amento"
+          target="_blank" rel="noopener">Quero um orçamento <svg class="ico" aria-hidden="true">
+            <use href="#i-arrow" />
+          </svg></a>
+        <p class="cta-final__note">Respondo em até 24h · <a
+            href="mailto:flavianamarafoni@gmail.com">flavianamarafoni@gmail.com</a></p>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <!-- ---- NAP (nome, endereco, telefone) ----
+         Bloco curto de proposito, mas obrigatorio para busca local: o Google
+         cruza este texto com o LocalBusiness do JSON-LD e com o Perfil da
+         Empresa. Os tres dados precisam bater LETRA POR LETRA nos tres lugares
+         (aqui, no JSON-LD e no Google Meu Negocio) - divergiu, perde forca. -->
+    <address class="footer__nap">
+      <strong>Flaviana Marafoni</strong>, Influenciadora Digital e Creator de Conteúdo<br>
+      Marataízes, Espírito Santo, Brasil · atende Marataízes, Itapemirim, Presidente Kennedy, Piúma, Anchieta, Iconha,
+      Rio Novo do Sul, Cachoeiro de Itapemirim e Guarapari<br>
+      <a href="https://wa.me/5528999418357" target="_blank" rel="noopener">WhatsApp (28) 99941-8357</a> ·
+      <a href="mailto:flavianamarafoni@gmail.com">flavianamarafoni@gmail.com</a>
+    </address>
+
+    <div class="container footer__inner">
+      <p class="footer__meta">
+        <span class="footer__clock">Marataízes/ES <time data-relogio>--:--:--</time></span>
+        <!-- Este <span> nao e decorativo: o .footer__meta e flex-column, entao cada
+             trecho solto de texto virava um item anonimo e quebrava em tres linhas
+             (o "©", o ano e o nome, cada um embaixo do outro). Envolvido, e um item so. -->
+        <span>© <span data-ano></span> Flaviana Marafoni · Todos os direitos reservados</span>
+      </p>
+      <ul class="social">
+        <li><a href="https://instagram.com/flavianamarafoni" target="_blank" rel="noopener"><svg class="ico"
+              aria-hidden="true">
+              <use href="#i-instagram" />
+            </svg>Instagram</a></li>
+        <li><a href="https://tiktok.com/@flavimarafoni" target="_blank" rel="noopener"><svg class="ico"
+              aria-hidden="true">
+              <use href="#i-tiktok" />
+            </svg>TikTok</a></li>
+        <li><a href="https://wa.me/5528999418357" target="_blank" rel="noopener"><svg class="ico" aria-hidden="true">
+              <use href="#i-whatsapp" />
+            </svg>WhatsApp</a></li>
+      </ul>
+    </div>
+
+    <!-- ---- Credito de autoria ----
+         Linha discreta, na mesma calha do rodape. rel="noopener" pelo target,
+         e "author" porque e literalmente isso: o link aponta para quem fez. -->
+    <p class="credit">
+      <a class="credit__link" href="https://portfolio-vicenzo-prucoli.vercel.app/" target="_blank"
+        rel="noopener author">
+        <span class="credit__mark" aria-hidden="true">V</span>
+        <span>Desenvolvido por <strong>Vicenzo</strong></span>
+      </a>
+    </p>
+
+    <!-- Wordmark de largura total. aria-hidden: o nome ja esta no <h1> e no <title>. -->
+    <p class="wordmark" aria-hidden="true">Flaviana Marafoni</p>
+  </footer>
+
+  <a class="wa-bar"
+    href="https://wa.me/5528999418357?text=Oi%20Flaviana%2C%20vi%20seu%20portf%C3%B3lio%20e%20quero%20um%20or%C3%A7amento"
+    target="_blank" rel="noopener">
+    <svg class="ico" aria-hidden="true">
+      <use href="#i-whatsapp" />
+    </svg>Quero um orçamento
+  </a>
+
+  <!-- ============ SUMÁRIO EM FOLHA (mobile / tablet) ============
+     Mesma lista da .rail, clonada pelo script - a régua continua sendo a
+     unica fonte do sumario, entao nao existe risco de as duas divergirem.
+     Entra deslizando pela esquerda, na mesma direcao em que a regua vive
+     no desktop. Fica vazia ate o script rodar; por isso nasce [hidden]. -->
+  <div class="folha" id="sumario-folha" data-sumario hidden>
+    <button class="folha__scrim" type="button" aria-label="Fechar sumário" data-sumario-fechar></button>
+    <div class="folha__painel" role="dialog" aria-modal="true" aria-label="Sumário da página">
+      <div class="folha__topo">
+        <p class="folha__titulo">Sumário</p>
+        <button class="folha__fechar" type="button" data-sumario-fechar>
+          <svg class="ico" aria-hidden="true">
+            <use href="#i-plus" />
+          </svg>Fechar
+        </button>
+      </div>
+      <div class="folha__corpo" data-sumario-corpo></div>
+    </div>
+  </div>
+
+  <!-- Toggle de tema. Comeca sempre no claro; o escuro e opt-in e fica salvo. -->
+  <button class="theme-toggle" type="button" data-tema aria-pressed="false" aria-label="Ativar modo escuro">
+    <svg class="ico ico--sun" aria-hidden="true">
+      <use href="#i-sun" />
+    </svg>
+    <svg class="ico ico--moon" aria-hidden="true">
+      <use href="#i-moon" />
+    </svg>
+  </button>
+
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.umd.js" defer></script>
+  <script src="scripts/script.js" defer></script>
+</body>
+
+</html>

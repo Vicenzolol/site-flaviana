@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  sitemap.xml - Flaviana Marafoni
+  TROCAR "flaviana-marafoni.vercel.app" pelo domínio real antes de publicar.
+  O site é uma landing page única, então há uma só <url>. As âncoras (#sobre,
+  #investimento…) NÃO entram: o Google trata âncora como a mesma página e
+  listá-las só gera aviso de duplicata no Search Console.
+  Atualize <lastmod> sempre que mexer no conteúdo.
+-->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+  <url>
+    <loc>https://flaviana-marafoni.vercel.app/</loc>
+    <lastmod>2026-09-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://flaviana-marafoni.vercel.app/img/og.jpg</image:loc>
+      <image:title>Flaviana Marafoni, Influenciadora Digital em Marataízes/ES</image:title>
+      <image:caption>Influenciadora digital e creator de conteúdo em Marataízes, litoral sul do Espírito Santo.</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://flaviana-marafoni.vercel.app/img/flaviana-1024.webp</image:loc>
+      <image:title>Retrato de Flaviana Marafoni, creator em Marataízes/ES</image:title>
+    </image:image>
+  </url>
+</urlset>

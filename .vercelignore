@@ -1,0 +1,9 @@
+# Nao vai pro deploy: 80 MB de PDF/anotacoes que ninguem acessa pelo site.
+material/
+
+# docs/ ja esta no .gitignore, entao nem chega na Vercel. A linha fica aqui
+# como rede de seguranca para deploy manual pela CLI, que ignora o .gitignore.
+docs/
+
+# Config do Apache local: na Vercel quem manda e o vercel.json.
+.htaccess

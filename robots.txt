@@ -1,0 +1,33 @@
+# robots.txt - Flaviana Marafoni, Influenciadora Digital (Marataízes/ES)
+# TROCAR "flaviana-marafoni.vercel.app" pelo domínio real antes de publicar.
+
+User-agent: *
+Allow: /
+
+# Nada a esconder: o site é uma página só e tudo nela é conteúdo público.
+# O CSS e o JS PRECISAM ser rastreáveis, o Google renderiza a página para
+# avaliar layout e mobile-friendliness. Bloquear /styles ou /scripts derruba o
+# ranking. Por isso não há nenhum Disallow aqui.
+
+# Rastreadores de IA (ChatGPT, Perplexity, Claude, Gemini). Liberados de
+# propósito: hoje muita marca pergunta "quem é influenciador em Marataízes?"
+# dentro de um chatbot, e sem isso ela não aparece nessa resposta.
+User-agent: GPTBot
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+Sitemap: https://flaviana-marafoni.vercel.app/sitemap.xml

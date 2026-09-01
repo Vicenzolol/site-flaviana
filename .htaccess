@@ -1,0 +1,96 @@
+# =============================================================================
+#  .htaccess - Flaviana Marafoni
+#  Compressao + cache + cabecalhos. Isso nao e firula: velocidade (Core Web
+#  Vitals) e criterio de ranqueamento do Google, e sem gzip/brotli o CSS de
+#  68 KB e o JS de 23 KB viajam inteiros.
+#
+#  Requer no Apache (WAMP): mod_deflate, mod_expires, mod_headers, mod_rewrite.
+#  No WAMP: icone da bandeja > Apache > Apache modules > marcar os quatro.
+#  Cada bloco esta dentro de <IfModule>, entao se um modulo faltar o site
+#  continua de pe - so perde aquela otimizacao.
+# =============================================================================
+
+# ---------- 1. Compressao ----------
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html text/plain text/xml text/css
+  AddOutputFilterByType DEFLATE application/javascript application/x-javascript
+  AddOutputFilterByType DEFLATE application/json application/ld+json
+  AddOutputFilterByType DEFLATE application/xml application/rss+xml
+  AddOutputFilterByType DEFLATE image/svg+xml application/manifest+json
+  # Imagem ja comprimida (webp/jpg/png) nao ganha nada e so gasta CPU.
+</IfModule>
+
+# ---------- 2. Cache do navegador ----------
+<IfModule mod_expires.c>
+  ExpiresActive On
+  # O HTML nao pode ser cacheado por muito tempo: e nele que mora a copy.
+  ExpiresByType text/html                 "access plus 0 seconds"
+  ExpiresByType text/css                  "access plus 1 year"
+  ExpiresByType application/javascript    "access plus 1 year"
+  ExpiresByType image/webp                "access plus 1 year"
+  ExpiresByType image/jpeg                "access plus 1 year"
+  ExpiresByType image/png                 "access plus 1 year"
+  ExpiresByType image/svg+xml             "access plus 1 year"
+  ExpiresByType image/x-icon              "access plus 1 year"
+  ExpiresByType font/woff2                "access plus 1 year"
+  ExpiresByType application/manifest+json "access plus 1 week"
+  # sitemap e robots mudam pouco, mas o crawler precisa ver mudanca rapido
+  ExpiresByType application/xml           "access plus 1 day"
+</IfModule>
+
+# ---------- 3. MIME types que o Apache antigo nao conhece ----------
+<IfModule mod_mime.c>
+  AddType image/webp                  .webp
+  AddType application/manifest+json   .webmanifest
+  AddType application/ld+json         .jsonld
+  AddType font/woff2                  .woff2
+</IfModule>
+AddDefaultCharset UTF-8
+
+# ---------- 4. Cabecalhos ----------
+<IfModule mod_headers.c>
+  # Evita que o navegador "adivinhe" o tipo do arquivo.
+  Header set X-Content-Type-Options "nosniff"
+  # Referrer completo dentro do proprio dominio, so a origem para fora.
+  Header set Referrer-Policy "strict-origin-when-cross-origin"
+  # Nao deixa o site ser embutido em iframe de terceiro (clickjacking).
+  Header set X-Frame-Options "SAMEORIGIN"
+  # Arquivo com hash no nome pode ser imutavel; aqui nao ha hash, entao fica so
+  # o Expires acima. Se um dia versionar (styles.a1b2c3.css), acrescente:
+  # Header set Cache-Control "public, max-age=31536000, immutable"
+</IfModule>
+
+# ---------- 5. URL canonica ----------
+# UMA versao do site so. Duas versoes acessiveis (com e sem www, http e https)
+# dividem a autoridade entre elas e o Google trata como conteudo duplicado.
+#
+# !!! DESCOMENTE DEPOIS DE PUBLICAR, trocando SEU-DOMINIO.com.br !!!
+# (Deixar ligado em localhost quebra o ambiente de desenvolvimento.)
+#
+# <IfModule mod_rewrite.c>
+#   RewriteEngine On
+#
+#   # 5a. Forca HTTPS
+#   RewriteCond %{HTTPS} !=on
+#   RewriteRule ^(.*)$ https://%{HTTP_HOST}/$1 [R=301,L]
+#
+#   # 5b. Forca o www (escolha UM dos dois blocos, nunca os dois)
+#   RewriteCond %{HTTP_HOST} ^SEU-DOMINIO\.com\.br$ [NC]
+#   RewriteRule ^(.*)$ https://www.SEU-DOMINIO.com.br/$1 [R=301,L]
+#
+#   # 5b-alt. ...ou forca SEM www - se preferir esse, comente o bloco acima:
+#   # RewriteCond %{HTTP_HOST} ^www\.SEU-DOMINIO\.com\.br$ [NC]
+#   # RewriteRule ^(.*)$ https://SEU-DOMINIO.com.br/$1 [R=301,L]
+#
+#   # 5c. index.html na URL vira a raiz (evita / e /index.html duplicados)
+#   RewriteCond %{THE_REQUEST} \s/+index\.html[\s?] [NC]
+#   RewriteRule ^(.*)index\.html$ /$1 [R=301,L]
+# </IfModule>
+
+# ---------- 6. Diversos ----------
+DirectoryIndex index.html
+Options -Indexes
+<IfModule mod_rewrite.c>
+  # Sem pagina 404 propria ainda; quando houver, crie 404.html e descomente:
+  # ErrorDocument 404 /404.html
+</IfModule>

@@ -1,0 +1,32 @@
+{
+  "name": "Flaviana Marafoni, Influenciadora Digital",
+  "short_name": "Flaviana Marafoni",
+  "description": "Portfólio e mídia kit de Flaviana Marafoni, influenciadora digital e creator em Marataízes/ES.",
+  "lang": "pt-BR",
+  "dir": "ltr",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "theme_color": "#6c5f7d",
+  "background_color": "#e6e4de",
+  "icons": [
+    {
+      "src": "android-chrome-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "android-chrome-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "android-chrome-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ]
+}
