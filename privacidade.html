@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="utf-8">
+  <script>
+    (function () {
+      var h = document.documentElement;
+      h.classList.add("js");
+      try {
+        if (localStorage.getItem("fm_tema") === "escuro") h.setAttribute("data-theme", "dark");
+      } catch (e) { /* localStorage bloqueado - segue no claro */ }
+    })();
+  </script>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Sem o .html: a Vercel esta com cleanUrls, entao a URL final e esta. -->
+  <link rel="canonical" href="https://flaviana-marafoni.vercel.app/privacidade">
+
+  <title>Política de Privacidade · Flaviana Marafoni</title>
+  <meta name="description"
+    content="Como o site de Flaviana Marafoni trata dados pessoais, quais cookies usa e como exercer seus direitos previstos na LGPD.">
+
+  <!-- Pagina legal: indexar nao ajuda ninguem a encontrar o trabalho dela. -->
+  <meta name="robots" content="noindex, follow">
+  <meta name="theme-color" content="#e6e4de">
+
+  <link rel="icon" href="img/favicon_io/favicon.ico" sizes="32x32">
+  <link rel="icon" type="image/png" sizes="32x32" href="img/favicon_io/favicon-32x32.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="img/favicon_io/apple-touch-icon.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Azeret+Mono:wght@400;500&family=Crimson+Pro:ital,wght@0,200;0,300;1,200;1,300&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="styles/styles.css">
+
+  <style>
+    /* Regras so desta pagina: um texto corrido longo, que a home nao tem. */
+    .legal {
+      padding-block: clamp(3.5rem, 8vw, 6rem);
+    }
+
+    .legal h2 {
+      margin: 2.75rem 0 0.75rem;
+      font-family: var(--font-display);
+      font-weight: 300;
+      font-size: clamp(1.35rem, 1.1rem + 1vw, 1.75rem);
+      line-height: 1.2;
+    }
+
+    .legal h3 {
+      margin: 1.75rem 0 0.5rem;
+      font-family: var(--font-ui);
+      font-size: 0.6875rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--muted);
+    }
+
+    .legal p,
+    .legal li {
+      font-size: 0.8125rem;
+      line-height: 1.8;
+      color: var(--muted);
+    }
+
+    .legal p {
+      margin: 0 0 1rem;
+    }
+
+    .legal ul {
+      margin: 0 0 1rem;
+      padding-left: 1.1rem;
+    }
+
+    .legal li {
+      margin-bottom: 0.5rem;
+    }
+
+    .legal a {
+      color: var(--ink);
+      text-underline-offset: 3px;
+    }
+
+    .legal strong {
+      color: var(--ink);
+      font-weight: 500;
+    }
+
+    /* .legal p e .legal a tem especificidade maior: por isso os seletores duplos */
+    .legal p.legal__data {
+      margin-bottom: 2.5rem;
+      font-family: var(--font-ui);
+      font-size: 0.6875rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--ash);
+    }
+
+    .legal a.legal__voltar {
+      display: inline-flex;
+      align-items: center;
+      min-height: 44px;
+      margin-bottom: 2rem;
+      font-family: var(--font-ui);
+      font-size: 0.6875rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--muted);
+    }
+
+    .legal a.legal__voltar:hover {
+      color: var(--ink);
+    }
+
+    /* Tabela de cookies: rola sozinha em tela estreita. */
+    .legal__tabela-wrap {
+      overflow-x: auto;
+      margin: 0 0 1.5rem;
+    }
+
+    .legal__tabela {
+      width: 100%;
+      min-width: 460px;
+      border-collapse: collapse;
+      font-size: 0.75rem;
+    }
+
+    .legal__tabela th,
+    .legal__tabela td {
+      padding: 0.7rem 0.9rem 0.7rem 0;
+      text-align: left;
+      border-bottom: 1px solid var(--rule);
+      color: var(--muted);
+      vertical-align: top;
+    }
+
+    .legal__tabela th {
+      font-family: var(--font-ui);
+      font-size: 0.625rem;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: var(--ink);
+      border-bottom-color: var(--rule-strong);
+    }
+  </style>
+</head>
+
+<body>
+  <main class="legal">
+    <div class="container container--narrow">
+      <a class="legal__voltar" href="./">← Voltar para o site</a>
+
+      <p class="kicker">Documento legal</p>
+      <h1>Política de Privacidade</h1>
+      <p class="legal__data">Última atualização: 1 de setembro de 2026</p>
+
+      <p>Esta política explica quais dados este site coleta, por que coleta, com quem compartilha e o que você pode
+        exigir a respeito. Ela segue a <strong>Lei nº 13.709/2018 (LGPD)</strong>.</p>
+
+      <h2>Quem é responsável pelos seus dados</h2>
+      <p>A controladora dos dados é <strong>Flaviana Marafoni</strong>, influenciadora digital e criadora de conteúdo,
+        estabelecida em Marataízes, Espírito Santo, Brasil.</p>
+      <p>Contato para qualquer assunto relacionado a esta política, incluindo o exercício dos seus direitos:
+        <a href="mailto:flavianamarafoni@gmail.com">flavianamarafoni@gmail.com</a> ou
+        <a href="https://wa.me/5528999418357" target="_blank" rel="noopener">WhatsApp (28) 99941-8357</a>.
+      </p>
+
+      <h2>Quais dados são coletados</h2>
+
+      <h3>Dados de navegação (só com o seu consentimento)</h3>
+      <p>Se você aceitar os cookies no aviso exibido na primeira visita, este site usa o <strong>Google Analytics
+          4</strong> para entender como as pessoas chegam até aqui. São coletados dados como:</p>
+      <ul>
+        <li>páginas visitadas, tempo de permanência e o quanto você rolou a página;</li>
+        <li>cliques em botões de contato, como os de WhatsApp e o endereço de e-mail;</li>
+        <li>quais vídeos, prints de feedback e cases você abriu, e quais perguntas do FAQ expandiu;</li>
+        <li>até que parte da página você chegou, como a tabela de preços e o convite final;</li>
+        <li>uso da navegação: links de seção, carrossel de vídeos, sumário e a troca entre tema claro e escuro;</li>
+        <li>tipo de dispositivo, navegador, sistema operacional e idioma;</li>
+        <li>origem da visita (Instagram, Google, link direto);</li>
+        <li>localização aproximada, no nível de cidade, derivada do endereço de IP;</li>
+        <li>erros técnicos de JavaScript, para que falhas no site sejam descobertas e corrigidas.</li>
+      </ul>
+      <p>Há ainda um caso específico que merece ser dito com clareza: quando você <strong>copia</strong> um trecho da
+        página, o site verifica se o que foi copiado é o telefone ou o e-mail de contato. Só isso é registrado, na forma
+        de uma marcação do tipo “copiou o telefone”. <strong>O texto que você copiou não é lido, guardado nem
+          enviado</strong> a lugar nenhum. Isso existe porque muita gente prefere copiar o número a clicar no botão, e
+        sem essa marcação não haveria como saber que o contato aconteceu.</p>
+      <p>Esses dados são <strong>estatísticos e não identificam você pessoalmente</strong>. O endereço de IP é
+        anonimizado antes do armazenamento e não é possível, a partir deles, saber quem você é. Se você recusar os
+        cookies, <strong>nada disso é coletado</strong> e o site funciona normalmente.</p>
+
+      <h3>Dados que você envia por vontade própria</h3>
+      <p>Este site não possui formulário de cadastro. O contato acontece por WhatsApp ou e-mail, e nesse caso os dados
+        que você mesmo informar (nome, telefone, e-mail, nome da empresa e o conteúdo das mensagens) são tratados para
+        responder à sua solicitação e, se houver contratação, para executar o serviço.</p>
+
+      <h2>Por que os dados são tratados</h2>
+      <div class="legal__tabela-wrap">
+        <table class="legal__tabela">
+          <thead>
+            <tr>
+              <th scope="col">Finalidade</th>
+              <th scope="col">Base legal (LGPD)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Medir audiência e melhorar o site</td>
+              <td>Consentimento, art. 7º, I</td>
+            </tr>
+            <tr>
+              <td>Responder a contatos e enviar orçamentos</td>
+              <td>Procedimentos preliminares de contrato, art. 7º, V</td>
+            </tr>
+            <tr>
+              <td>Executar publicidade contratada por marcas</td>
+              <td>Execução de contrato, art. 7º, V</td>
+            </tr>
+            <tr>
+              <td>Manter o site no ar e protegido contra abusos</td>
+              <td>Legítimo interesse, art. 7º, IX</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h2>Cookies utilizados</h2>
+      <p>Cookie é um arquivo pequeno que o site grava no seu navegador. <strong>Nenhum cookie de medição é gravado antes
+          do seu aceite</strong>. O site usa o modo de consentimento do Google, que mantém a coleta desligada até você
+        autorizar.</p>
+      <div class="legal__tabela-wrap">
+        <table class="legal__tabela">
+          <thead>
+            <tr>
+              <th scope="col">Cookie</th>
+              <th scope="col">Para quê</th>
+              <th scope="col">Validade</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>_ga, _ga_08W7F5KQCJ</td>
+              <td>Google Analytics: distinguir visitantes e sessões</td>
+              <td>2 anos</td>
+            </tr>
+            <tr>
+              <td>fm_consentimento</td>
+              <td>Guardar sua resposta ao aviso de cookies</td>
+              <td>Permanente, até você limpar o navegador</td>
+            </tr>
+            <tr>
+              <td>fm_tema, fm_intro_vista</td>
+              <td>Lembrar o modo claro/escuro e se a abertura já foi exibida</td>
+              <td>Permanente / sessão</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p>Os três últimos não são cookies propriamente ditos, e sim armazenamento local do navegador. Eles ficam apenas no
+        seu aparelho, não são enviados a ninguém e existem só para o site se comportar do jeito que você escolheu.</p>
+
+      <h2>Como mudar ou revogar sua escolha</h2>
+      <p>Você pode alterar sua decisão a qualquer momento, sem justificativa, clicando em
+        <strong>“Preferências de cookies”</strong> no rodapé do site. Revogar o consentimento é tão simples quanto
+        concedê-lo, e não muda nada na sua experiência aqui.</p>
+
+      <h2>Com quem os dados são compartilhados</h2>
+      <p>Os dados não são vendidos nem cedidos para fins de marketing de terceiros. Eles passam apenas pelos serviços
+        necessários para o site existir:</p>
+      <ul>
+        <li><strong>Google LLC</strong>: Google Analytics, para as estatísticas de audiência.
+          <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Política de privacidade</a>.
+        </li>
+        <li><strong>Vercel Inc.</strong>: hospedagem do site. Registra dados técnicos de acesso, como IP e horário, por
+          segurança e estabilidade.</li>
+        <li><strong>WhatsApp / Meta Platforms</strong>: se você optar por falar por WhatsApp, a conversa é tratada
+          conforme as políticas da própria plataforma.</li>
+      </ul>
+      <p>Esses serviços possuem servidores fora do Brasil, o que caracteriza transferência internacional de dados. Todos
+        adotam cláusulas contratuais e padrões de proteção compatíveis com a LGPD.</p>
+
+      <h2>Por quanto tempo os dados ficam guardados</h2>
+      <ul>
+        <li><strong>Dados de navegação:</strong> até 14 meses no Google Analytics, prazo após o qual são excluídos
+          automaticamente.</li>
+        <li><strong>Mensagens de contato:</strong> pelo tempo necessário para atender à solicitação e, havendo
+          contratação, pelo prazo legal aplicável a documentos fiscais e contratuais.</li>
+        <li><strong>Sua resposta ao aviso de cookies:</strong> fica no seu navegador até você limpá-lo.</li>
+      </ul>
+
+      <h2>Seus direitos</h2>
+      <p>O artigo 18 da LGPD garante a você, a qualquer momento e gratuitamente, o direito de:</p>
+      <ul>
+        <li>confirmar se existe algum tratamento de dados seus;</li>
+        <li>acessar esses dados;</li>
+        <li>corrigir dados incompletos, inexatos ou desatualizados;</li>
+        <li>solicitar anonimização, bloqueio ou eliminação de dados desnecessários ou excessivos;</li>
+        <li>solicitar a portabilidade dos dados a outro fornecedor;</li>
+        <li>revogar o consentimento e pedir a eliminação dos dados tratados com base nele;</li>
+        <li>ser informado sobre com quem os dados foram compartilhados;</li>
+        <li>opor-se a um tratamento que considere irregular.</li>
+      </ul>
+      <p>Para exercer qualquer um deles, escreva para
+        <a href="mailto:flavianamarafoni@gmail.com">flavianamarafoni@gmail.com</a>. A resposta é enviada em até
+        <strong>15 dias</strong>. Se você não ficar satisfeito com o retorno, pode apresentar reclamação à
+        <a href="https://www.gov.br/anpd/pt-br" target="_blank" rel="noopener">Autoridade Nacional de Proteção de Dados
+          (ANPD)</a>.
+      </p>
+
+      <h2>Segurança</h2>
+      <p>O site trafega inteiramente por conexão criptografada (HTTPS) e não coleta senhas, dados bancários ou
+        documentos. Ainda assim, nenhum sistema é infalível: se ocorrer um incidente de segurança com risco relevante,
+        os titulares afetados e a ANPD serão comunicados, conforme o art. 48 da LGPD.</p>
+
+      <h2>Crianças e adolescentes</h2>
+      <p>Este site é dirigido a marcas, empresas e profissionais. Não há coleta intencional de dados de menores de 18
+        anos. Se identificarmos algo assim, os dados serão eliminados.</p>
+
+      <h2>Mudanças nesta política</h2>
+      <p>Esta política pode ser atualizada para refletir mudanças no site ou na legislação. A data no topo sempre indica
+        a versão vigente. Alterações relevantes voltarão a pedir seu consentimento.</p>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer__inner">
+      <p class="footer__meta">
+        <span>© <span data-ano></span> Flaviana Marafoni · Todos os direitos reservados</span>
+        <span class="footer__legal">
+          <a href="./">Voltar para o site</a> ·
+          <button class="footer__prefs" type="button" data-cookies-abrir>Preferências de cookies</button>
+        </span>
+      </p>
+    </div>
+  </footer>
+
+  <!-- Aviso de cookies (LGPD). hidden por padrao: o script decide se mostra. -->
+  <div class="cookies" role="dialog" aria-labelledby="cookies-titulo" data-cookies hidden>
+    <p class="cookies__titulo" id="cookies-titulo">Cookies por aqui</p>
+    <p class="cookies__texto">
+      Uso o Google Analytics para saber quantas pessoas visitam o site e de onde elas vêm. Nada disso identifica você
+      pessoalmente. Se preferir, pode recusar, e o site funciona igual.
+    </p>
+    <div class="cookies__acoes">
+      <button class="btn btn--sm" type="button" data-cookies-aceitar>Aceitar</button>
+      <button class="btn btn--sm btn--ghost" type="button" data-cookies-recusar>Recusar</button>
+    </div>
+  </div>
+
+  <script>
+    (function () {
+      "use strict";
+
+      var ano = document.querySelector("[data-ano]");
+      if (ano) ano.textContent = new Date().getFullYear();
+
+      /* Mesma logica do script.js da home, reduzida ao que esta pagina usa. */
+      var aviso = document.querySelector("[data-cookies]");
+      if (!aviso) return;
+
+      var CHAVE = "fm_consentimento";
+
+      function ler() {
+        try { return localStorage.getItem(CHAVE); } catch (e) { return null; }
+      }
+
+      function responder(valor) {
+        try { localStorage.setItem(CHAVE, valor); } catch (e) { /* modo restrito */ }
+        aviso.hidden = true;
+        if (typeof window.gtag === "function") {
+          window.gtag("consent", "update", {
+            analytics_storage: valor === "aceito" ? "granted" : "denied"
+          });
+        }
+      }
+
+      aviso.querySelector("[data-cookies-aceitar]").addEventListener("click", function () {
+        responder("aceito");
+      });
+      aviso.querySelector("[data-cookies-recusar]").addEventListener("click", function () {
+        responder("recusado");
+      });
+
+      Array.prototype.forEach.call(
+        document.querySelectorAll("[data-cookies-abrir]"),
+        function (b) {
+          b.addEventListener("click", function () { aviso.hidden = false; });
+        }
+      );
+
+      if (!ler()) aviso.hidden = false;
+    })();
+  </script>
+</body>
+
+</html>

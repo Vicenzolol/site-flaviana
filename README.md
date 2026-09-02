@@ -15,8 +15,9 @@ o que está no repositório é exatamente o que o navegador recebe.
 
 ```
 index.html          Página inteira (conteúdo + SEO + JSON-LD)
+privacidade.html    Política de privacidade (LGPD), fora do índice de busca
 styles/styles.css   Estilos, incluindo tema claro/escuro
-scripts/script.js   Interações (carrossel, FAQ, toggle de tema)
+scripts/script.js   Interações (carrossel, FAQ, tema) e medição do Analytics
 img/                Fotos, feedbacks, favicons e imagens de Open Graph
 sitemap.xml         Sitemap enviado ao Google Search Console
 robots.txt          Libera crawlers de busca e de IA
@@ -26,6 +27,22 @@ vercel.json         Headers, cache e cleanUrls na Vercel
 
 Seções da página: hero, sobre, conteúdos, cases (alcance e feedbacks), marcas
 parceiras, investimento, FAQ e contato.
+
+## Medição e privacidade
+
+O site usa **Google Analytics 4** (`G-08W7F5KQCJ`) em modo de consentimento:
+nenhum cookie é gravado antes do aceite no banner, e recusar realmente desliga
+a coleta. São 17 eventos personalizados, do clique no WhatsApp até a rolagem
+que alcança a tabela de preços.
+
+O código está em `scripts/script.js`, no bloco `medicao: eventos enviados ao
+Analytics`, com um comentário em cada evento explicando o que ele responde.
+
+**Cuidado ao mexer no HTML:** os eventos não conhecem a estrutura da página,
+eles leem classes e atributos existentes (`data-duvida`, `data-fancybox`,
+`data-aba`, `.reel__link`, `.case__brand`, os `id` das seções). Renomear
+qualquer um deles não gera erro: o evento simplesmente para de contar, em
+silêncio.
 
 ## Rodar localmente
 
@@ -43,7 +60,7 @@ caminhos absolutos e o JSON-LD.
 ## Deploy
 
 Hospedado na **Vercel**, conectado a este repositório: todo push na `main` gera
-um deploy de produção automático. Não há build step — o preset é *Other*, com
+um deploy de produção automático. Não há build step — o preset é _Other_, com
 build command e output directory vazios.
 
 O `vercel.json` cobre o que a Vercel não faz sozinha: headers de segurança

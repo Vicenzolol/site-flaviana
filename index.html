@@ -4,8 +4,6 @@
 <head>
   <meta charset="utf-8">
   <script>
-    /* Carimba o tema ANTES da primeira pintura - sem isso o reload no modo escuro
-       pisca branco. O padrao e sempre claro: so entra no escuro quem escolheu. */
     (function () {
       var h = document.documentElement;
       h.classList.add("js");
@@ -16,36 +14,9 @@
   </script>
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <!-- ==========================================================================
-     GOOGLE ANALYTICS (GA4) - desativado ate ter o ID de mensuracao.
-     Quando criar a propriedade em analytics.google.com, troque G-XXXXXXXXXX
-     (nas DUAS linhas abaixo) pelo ID real e remova este comentario de aviso.
-     Sem o ID real o script nem carrega de verdade - nao gera erro, so nao mede nada.
-     ========================================================================== -->
-  <!--
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag() { dataLayer.push(arguments); }
-    gtag('js', new Date());
-    gtag('config', 'G-XXXXXXXXXX');
-  </script>
-  -->
-
-  <!-- ==========================================================================
-     !!! TROCAR ANTES DE PUBLICAR !!!
-     Todo endereco absoluto abaixo usa o placeholder  https://flaviana-marafoni.vercel.app
-     Assim que o dominio existir, faca um FIND/REPLACE de  flaviana-marafoni.vercel.app
-     por o dominio real NESTES QUATRO ARQUIVOS:
-        index.html · robots.txt · sitemap.xml · img/favicon_io/site.webmanifest
-     Enquanto for placeholder o canonical aponta pro nada e o Google nao indexa.
-     Passo a passo completo em docs/seo-checklist.md
-     ========================================================================== -->
   <link rel="canonical" href="https://flaviana-marafoni.vercel.app/">
 
   <title>Flaviana Marafoni, Influenciadora Digital em Marataízes/ES</title>
-  <!-- ~155 caracteres de proposito: acima disso o Google corta no "..." e a
-       chamada de acao ("peca seu orcamento") morre no meio da frase. -->
   <meta name="description"
     content="Influenciadora digital em Marataízes/ES. Reels e Stories com venda provada no cupom para casa e decoração, beleza e gastronomia. +100 marcas atendidas.">
 
@@ -54,17 +25,9 @@
   <meta name="googlebot" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
   <meta name="author" content="Flaviana Marafoni">
 
-  <!-- Cor unica de proposito. Este site NAO segue o prefers-color-scheme: ele
-       abre sempre no claro e o escuro e opt-in pelo botao (regra que ja estava
-       no CSS e no script inline la em cima). Variar o theme-color pelo tema do
-       sistema pintaria a barra do navegador de preto com a pagina branca. Pelo
-       mesmo motivo nao ha <meta name="color-scheme">: ele deixaria a barra de
-       rolagem e os controles escuros num site claro. -->
   <meta name="theme-color" content="#e6e4de">
   <meta name="format-detection" content="telephone=no">
 
-  <!-- ---- SEO local: coordenadas de Marataizes/ES ----
-     Nao sao sinal forte pro Google, mas o Bing e varios agregadores ainda leem. -->
   <meta name="geo.region" content="BR-ES">
   <meta name="geo.placename" content="Marataízes, Espírito Santo">
   <meta name="geo.position" content="-21.043300;-40.824400">
@@ -115,8 +78,6 @@
   <!-- As capas dos Reels vem do YouTube; o handshake adiantado economiza ~200ms. -->
   <link rel="preconnect" href="https://i.ytimg.com" crossorigin>
   <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
-  <!-- Crimson Pro precisa do eixo italico (ital,wght): as headlines usam <em> em italico real.
-     Sem o eixo o browser sintetiza um obliquo falso e fica pior que o roman. -->
   <link
     href="https://fonts.googleapis.com/css2?family=Azeret+Mono:wght@400;500&family=Crimson+Pro:ital,wght@0,200;0,300;1,200;1,300&display=swap"
     rel="stylesheet">
@@ -138,13 +99,6 @@
     </style>
   </noscript>
 
-  <!-- ==========================================================================
-     DADOS ESTRUTURADOS (JSON-LD, schema.org)
-     E o que faz o Google entender QUEM ela e, O QUE vende, POR QUANTO e ONDE
-     atende - e o que habilita o painel de conhecimento e o rich result de FAQ.
-     Um unico @graph com tudo cruzado por @id, do jeito que o Google prefere.
-     Valide em: https://search.google.com/test/rich-results
-     ========================================================================== -->
   <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -409,6 +363,31 @@
   ]
 }
 </script>
+
+  <!-- Google tag (gtag.js). Consent Mode: nada e gravado antes do aceite (LGPD). -->
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+
+    gtag('consent', 'default', {
+      ad_storage: 'denied',
+      ad_user_data: 'denied',
+      ad_personalization: 'denied',
+      analytics_storage: 'denied',
+      wait_for_update: 500
+    });
+
+    try {
+      if (localStorage.getItem('fm_consentimento') === 'aceito') {
+        gtag('consent', 'update', { analytics_storage: 'granted' });
+      }
+    } catch (e) { /* modo restrito */ }
+
+    gtag('js', new Date());
+    /* O GA4 ja anonimiza o IP por padrao: nao existe parametro para isso. */
+    gtag('config', 'G-08W7F5KQCJ');
+  </script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-08W7F5KQCJ"></script>
 </head>
 
 <body>
@@ -474,14 +453,9 @@
         <circle cx="10.8" cy="10.8" r="6.3" />
         <path d="M15.4 15.4 20 20M10.8 8v5.6M8 10.8h5.6" />
       </symbol>
-      <!-- gesto de arrastar: setas para os dois lados. So aparece no mobile,
-           dentro da bussola de cada trilho. -->
       <symbol id="i-arrastar" viewBox="0 0 24 24">
         <path d="M4.5 12h15M7.6 8.9 4.5 12l3.1 3.1M16.4 8.9 19.5 12l-3.1 3.1" />
       </symbol>
-      <!-- gesto de tocar: a seta do cursor. Um desenho so, de contorno, que
-           continua legivel nos 14px em que ele e usado - a mao de dedinhos
-           vira borrao nesse tamanho. -->
       <symbol id="i-toque" viewBox="0 0 24 24">
         <path d="M7.5 4 18 13.4l-4.4.5 2.3 4.9-2.4 1.1-2.3-4.9-3 3.1z" />
       </symbol>
@@ -511,43 +485,20 @@
   <header class="nav" data-nav>
     <div class="container nav__inner">
       <a class="nav__brand" href="#topo">Flaviana&nbsp;Marafoni</a>
-      <!-- Nav enxuta (3 links, sem CTA), como a referencia. Os ancoras #nichos e
-         #marcas continuam existindo na pagina - so sairam da barra.
-         O CTA persistente passou a ser a .wa-bar, agora visivel tambem no desktop. -->
       <nav aria-label="Seções da página">
         <a href="#sobre">Sobre</a>
         <a href="#conteudos">Conteúdo</a>
         <a href="#investimento">Investimento</a>
         <a href="#cases">Resultados</a>
       </nav>
-      <!-- Abre o sumario em folha. So aparece abaixo de 1100px, onde a regua da
-         margem (.rail) nao cabe. O JS clona a lista da .rail para dentro dele -
-         sem JS o botao nem chega a ser exibido (fica [hidden]). -->
       <button class="nav__sumario" type="button" data-sumario-abrir hidden aria-expanded="false"
         aria-controls="sumario-folha">
         <span class="nav__sumario-traco" aria-hidden="true"></span>Sumário
       </button>
     </div>
-    <!-- Filete de progresso da leitura. Puro CSS (animation-timeline: scroll()):
-       onde nao houver suporte ele simplesmente fica em scaleX(0), invisivel. -->
     <div class="nav__progress" aria-hidden="true"></div>
   </header>
 
-  <!-- ============ SUMÁRIO: RÉGUA DE MARGEM ============
-     Mapa 1:1 da página na margem esquerda, no espírito da marcação de corte
-     na borda de um livro. Cada seção é um SEGMENTO vertical cuja altura é
-     proporcional à altura real dela no documento - por isso o intervalo entre
-     dois segmentos já é o fim de uma seção e o começo da outra, sem precisar
-     de nenhum enfeite extra. Os pontos internos são traços curtos deitados,
-     na posição real deles dentro do segmento.
-
-     A geometria (--y e --h de cada item) é escrita pelo script. SEM JS a lista
-     continua sendo uma lista de âncoras reais, distribuída por flex - só perde
-     a proporção. A tinta mauve que desce é a mesma técnica do .nav__progress:
-     animation-timeline: scroll(), zero listener de rolagem.
-
-     Só aparece a partir de 1100px; abaixo disso vira o botão "Sumário" da nav,
-     que abre esta mesma lista em folha. -->
   <nav class="rail" aria-label="Sumário da página" data-rail>
     <span class="rail__eixo" aria-hidden="true"></span>
     <span class="rail__ink" aria-hidden="true"></span>
@@ -660,21 +611,11 @@
     <!-- ============ HERO - full-bleed, bloco mauve solido sobre a midia ============ -->
     <section class="hero" id="topo">
 
-      <!-- Camada de fundo do hero: fica so no gradiente de proposito. O retrato
-           dela e o .hero__portrait logo abaixo - colocar uma segunda imagem grande
-           aqui competiria com ele pelo LCP e atrasaria a pintura. -->
       <div class="hero__media" aria-hidden="true"></div>
 
       <div class="container hero__inner">
 
-        <!-- Retrato ao lado do card roxo. O objeto 3D giratorio continua existindo
-         na intro de abertura (.intro .obj--intro) - aqui, no hero, ele foi
-         trocado pela foto da Flaviana. -->
         <div class="hero__object">
-          <!-- LCP da pagina. Vem em WebP (o PNG original tinha 2,3 MB - derrubava o
-           Core Web Vitals e, com ele, o ranking). fetchpriority=high + o preload
-           la no <head> fazem o browser buscar essa imagem antes de tudo.
-           NAO por loading="lazy" aqui: imagem acima da dobra com lazy atrasa o LCP. -->
           <img class="hero__portrait" src="img/flaviana-720.webp"
             srcset="img/flaviana-480.webp 480w, img/flaviana-720.webp 720w, img/flaviana-1024.webp 1024w"
             sizes="(max-width:900px) 45vw, 380px"
@@ -683,8 +624,6 @@
         </div>
 
         <div class="hero__panel">
-          <!-- O eyebrow e a lede carregam o termo de busca ("influenciadora digital em
-           Marataizes / litoral sul do ES"); o <h1> continua sendo a linha de venda. -->
           <p class="eyebrow" data-stagger>Influenciadora digital em Marataízes/ES · Casa e decoração · Beleza ·
             Gastronomia</p>
           <h1 data-stagger>Levo sua marca para mais de <em>5 milhões</em> de pessoas por mês e provo a venda no cupom.
@@ -848,25 +787,24 @@
         </div>
       </div>
       <div class="container grid-2">
-        <!-- No desktop isto e um texto corrido comum: os quatro <p> empilhados,
-             exatamente como sempre foram. Abaixo de 860px o .prosa vira trilho e
-             cada paragrafo vira uma FOLHA que se passa para o lado - quatro telas
-             de leitura viram uma so, sem cortar uma palavra do texto. -->
         <div class="prosa" data-trilho data-trilho-rotulo="Sobre mim">
           <p class="prosa__folha">Tenho 24 anos e moro em Marataízes, no litoral sul do Espírito Santo. Comecei a criar
             conteúdo aos 14: são
             10 anos de estrada, tempo suficiente para saber o que faz uma loja de bairro encher no sábado e o que só
             rende curtida.</p>
-          <p class="prosa__folha">Trabalho em três frentes: casa e decoração, moda e beleza, gastronomia e lifestyle.
-            Gravo dentro da rotina
-            real: a cozinha, a loja, o produto em uso. É por isso que o seguidor confia e compra: não parece anúncio,
-            parece indicação.</p>
-          <p class="prosa__folha">Já atendi mais de 100 empresas, do supermercado de bairro à Shein, à L&rsquo;Oréal e à
-            Dove. Marca local e
-            marca nacional pedem coisas diferentes; eu entrego as duas.</p>
-          <!-- Bloco de regiao: e informacao que a marca realmente quer (voce vai ate
-               a minha loja?) e, de quebra, o sinal mais forte que existe para busca
-               local - cada cidade daqui bate com o areaServed do JSON-LD no <head>. -->
+          <div class="prosa__folha">
+            <h3 class="prosa__titulo">Conteúdo que faz parte da vida real</h3>
+            <p>Transito entre casa e decoração, moda, beleza, gastronomia e lifestyle, sempre dentro da minha rotina.
+              Mais do que apresentar o produto, mostro ele em uso: na cozinha, num passeio, num momento do dia. É o que
+              gera identificação.</p>
+          </div>
+          <div class="prosa__folha">
+            <h3 class="prosa__titulo">Experiência que atravessa mercados</h3>
+            <p>Já trabalhei com mais de 100 marcas, de negócios locais a grandes empresas nacionais e internacionais,
+              como Colormaq, Appel Home, SHEIN, L&rsquo;Oréal, Dove etc.</p>
+            <p>Cada uma pede um formato: adapto o conteúdo à identidade da marca, sem perder criatividade e
+              autenticidade.</p>
+          </div>
           <p class="prosa__folha">Se a sua marca é daqui, eu vou até a loja: gravo em <strong>Marataízes</strong>,
             Itapemirim, Presidente
             Kennedy, Piúma, Anchieta, Iconha, Rio Novo do Sul, Cachoeiro de Itapemirim e Guarapari. Se a marca é
@@ -900,13 +838,10 @@
               <dd>2016</dd>
             </div>
           </dl>
-          <p class="panel__note">Dados de agosto de 2026.</p>
+          <p class="panel__note">Dados de setembro de 2026.</p>
         </aside>
       </div>
 
-      <!-- ---- RECORTE DE PUBLICO (genero / cidades) - Instagram Insights ----
-       Mesmo componente de barra nas duas cartas: .audience__bar preenche via
-       --w quando a linha entra na tela (reveal cadastrado em script.js). -->
       <div class="container">
         <div class="audience" data-trilho data-trilho-rotulo="Recorte de público">
           <div class="panel audience__card">
@@ -946,7 +881,7 @@
             </div>
           </div>
         </div>
-        <p class="panel__note">Dados do Instagram Insights, agosto de 2026.</p>
+        <p class="panel__note">Dados do Instagram Insights, setembro de 2026.</p>
       </div>
     </section>
 
@@ -995,17 +930,6 @@
       </div>
     </section>
 
-    <!-- ============ CONTEUDO EM DESTAQUE ============
-     ESTRUTURA CRUA - todos os slots estao vazios de proposito.
-     Cada .reel espera dois preenchimentos:
-       1) href do <a>  -> link do post (ex.: https://www.instagram.com/reel/ABC123/)
-       2) o <img>      -> capa/thumb do video (comentado abaixo de cada figure)
-     Enquanto a imagem nao existir, a moldura mostra o nome do arquivo esperado.
-     Para ativar cada item: descomentar o <img> e apagar o data-frame do <figure>.
-
-     Se depois voce preferir video rodando em vez de capa estatica, o mesmo
-     <figure> aceita <video muted loop playsinline poster="..."> no lugar do <img>
-     sem mudar nada no CSS. -->
     <section class="section section--rule" id="conteudos">
       <div class="container">
         <div class="section__head">
@@ -1016,27 +940,6 @@
           <a class="btn btn--sm" href="#investimento">Ver investimento</a>
         </div>
 
-        <!-- ---- REELS EM DESTAQUE - LEQUE COM SCROLL ----
-         Os videos sao Shorts do YouTube (ids em docs/videos-yt.md). Cada carta ja
-         nasce funcionando: a capa vem de i.ytimg.com e o link aponta pro Short.
-         Com JS o clique abre o player numa caixa 9:16 em cima da pagina.
-
-         COMO O LEQUE FUNCIONA
-         O .fan e um trilho alto; o .fan__stage gruda no topo (sticky) e cada
-         .fan__hand (uma "mao" de cartas) atravessa tres estados conforme a rolagem:
-           1) chega inclinada, aberta em leque, vinda de cima
-           2) alinha no centro, reta, todas na mesma linha
-           3) sai inclinada por baixo, e a proxima mao entra
-         Sem JS, em tela pequena ou com movimento reduzido, ele vira uma grade
-         normal de cartoes - o .is-on so e ligado pelo script quando da.
-
-         PARA TROCAR/ADICIONAR VIDEO: mude o id em data-yt, no href e na URL da capa
-         (sao o mesmo id nos tres lugares). Mao de 3 cartas usa fan__hand--3,
-         de 4 usa fan__hand--4, e o --fan-n do .fan e a QUANTIDADE DE MAOS.
-
-         .card__ig-top aponta pro post/reel da marca quando ha o link (docs/videos-yt.md);
-         quando so existe o handle, sem link do post, aponta pro perfil da marca no
-         Instagram. .card__ig-bottom continua sempre apontando pro perfil da Flaviana. -->
         <div class="reelgroup" data-aba="Reels">
           <div class="reelgroup__head">
             <h3 class="rail-alvo" id="conteudo-reels">Reels em destaque</h3>
@@ -1060,7 +963,8 @@
                     <a class="reel__link" href="https://youtube.com/shorts/xPCuZFUhOsg" target="_blank" rel="noopener"
                       data-yt="xPCuZFUhOsg">
                       <figure class="frame frame--9x16">
-                        <img src="https://i.ytimg.com/vi/xPCuZFUhOsg/hqdefault.jpg" alt="Reels em destaque do Superatacado Sempre Tem, gravado por Flaviana Marafoni"
+                        <img src="https://i.ytimg.com/vi/xPCuZFUhOsg/hqdefault.jpg"
+                          alt="Reels em destaque do Superatacado Sempre Tem, gravado por Flaviana Marafoni"
                           loading="lazy" decoding="async">
                         <span class="reel__play" aria-hidden="true"><svg class="ico">
                             <use href="#i-play" />
@@ -1086,8 +990,9 @@
                     <a class="reel__link" href="https://youtube.com/shorts/D8iIxAeWLmA" target="_blank" rel="noopener"
                       data-yt="D8iIxAeWLmA">
                       <figure class="frame frame--9x16">
-                        <img src="https://i.ytimg.com/vi/D8iIxAeWLmA/hqdefault.jpg" alt="Reels em destaque da Loja Hot Paradise, produzido por Flaviana Marafoni"
-                          loading="lazy" decoding="async">
+                        <img src="https://i.ytimg.com/vi/D8iIxAeWLmA/hqdefault.jpg"
+                          alt="Reels em destaque da Loja Hot Paradise, produzido por Flaviana Marafoni" loading="lazy"
+                          decoding="async">
                         <span class="reel__play" aria-hidden="true"><svg class="ico">
                             <use href="#i-play" />
                           </svg></span>
@@ -1112,8 +1017,9 @@
                     <a class="reel__link" href="https://youtube.com/shorts/gV-6FAKKrNc" target="_blank" rel="noopener"
                       data-yt="gV-6FAKKrNc">
                       <figure class="frame frame--9x16">
-                        <img src="https://i.ytimg.com/vi/gV-6FAKKrNc/hqdefault.jpg" alt="Reels em destaque do Sr. Costela Marataízes, com Flaviana Marafoni"
-                          loading="lazy" decoding="async">
+                        <img src="https://i.ytimg.com/vi/gV-6FAKKrNc/hqdefault.jpg"
+                          alt="Reels em destaque do Sr. Costela Marataízes, com Flaviana Marafoni" loading="lazy"
+                          decoding="async">
                         <span class="reel__play" aria-hidden="true"><svg class="ico">
                             <use href="#i-play" />
                           </svg></span>
@@ -1138,7 +1044,8 @@
                     <a class="reel__link" href="https://youtube.com/shorts/p5R4Ounpq5w" target="_blank" rel="noopener"
                       data-yt="p5R4Ounpq5w">
                       <figure class="frame frame--9x16">
-                        <img src="https://i.ytimg.com/vi/p5R4Ounpq5w/hqdefault.jpg" alt="Reels em destaque da Apaixone e Decore, gravado por Flaviana Marafoni" loading="lazy"
+                        <img src="https://i.ytimg.com/vi/p5R4Ounpq5w/hqdefault.jpg"
+                          alt="Reels em destaque da Apaixone e Decore, gravado por Flaviana Marafoni" loading="lazy"
                           decoding="async">
                         <span class="reel__play" aria-hidden="true"><svg class="ico">
                             <use href="#i-play" />
@@ -1167,9 +1074,6 @@
           </div>
         </div>
 
-        <!-- ---- STORIES EM DESTAQUE (4) - LEQUE, mesmo padrao da 1a secao.
-         Sem link do post ainda (docs/videos-yt.md so tem o handle), entao o
-         card__ig-top aponta pro perfil de cada marca no Instagram. ---- -->
         <div class="reelgroup" data-aba="Stories">
           <div class="reelgroup__head">
             <h3 class="rail-alvo" id="conteudo-stories">Stories em destaque</h3>
@@ -1182,8 +1086,7 @@
 
                 <div class="fan__hand fan__hand--4" data-fan-hand data-trilho data-trilho-rotulo="Stories em destaque">
                   <article class="fan__card">
-                    <a class="card__ig-top" href="https://instagram.com/abriudormiu" target="_blank"
-                      rel="noopener">
+                    <a class="card__ig-top" href="https://instagram.com/abriudormiu" target="_blank" rel="noopener">
                       <svg class="ico" aria-hidden="true">
                         <use href="#i-instagram" />
                       </svg>Ver vídeo no Instagram
@@ -1191,7 +1094,8 @@
                     <a class="reel__link" href="https://youtube.com/shorts/ooSrEejy9FM" target="_blank" rel="noopener"
                       data-yt="ooSrEejy9FM">
                       <figure class="frame frame--9x16">
-                        <img src="https://i.ytimg.com/vi/ooSrEejy9FM/hqdefault.jpg" alt="Story em destaque para Abriu Dormiu, gravado por Flaviana Marafoni" loading="lazy"
+                        <img src="https://i.ytimg.com/vi/ooSrEejy9FM/hqdefault.jpg"
+                          alt="Story em destaque para Abriu Dormiu, gravado por Flaviana Marafoni" loading="lazy"
                           decoding="async">
                         <span class="reel__play" aria-hidden="true"><svg class="ico">
                             <use href="#i-play" />
@@ -1216,7 +1120,8 @@
                     <a class="reel__link" href="https://youtube.com/shorts/H4iT8D2rSuw" target="_blank" rel="noopener"
                       data-yt="H4iT8D2rSuw">
                       <figure class="frame frame--9x16">
-                        <img src="https://i.ytimg.com/vi/H4iT8D2rSuw/hqdefault.jpg" alt="Story em destaque da Loja Hot Paradise, gravado por Flaviana Marafoni" loading="lazy"
+                        <img src="https://i.ytimg.com/vi/H4iT8D2rSuw/hqdefault.jpg"
+                          alt="Story em destaque da Loja Hot Paradise, gravado por Flaviana Marafoni" loading="lazy"
                           decoding="async">
                         <span class="reel__play" aria-hidden="true"><svg class="ico">
                             <use href="#i-play" />
@@ -1232,8 +1137,7 @@
                     </a>
                   </article>
                   <article class="fan__card">
-                    <a class="card__ig-top" href="https://instagram.com/loja_sora" target="_blank"
-                      rel="noopener">
+                    <a class="card__ig-top" href="https://instagram.com/loja_sora" target="_blank" rel="noopener">
                       <svg class="ico" aria-hidden="true">
                         <use href="#i-instagram" />
                       </svg>Ver vídeo no Instagram
@@ -1241,7 +1145,8 @@
                     <a class="reel__link" href="https://youtube.com/shorts/CK3VOyvkcro" target="_blank" rel="noopener"
                       data-yt="CK3VOyvkcro">
                       <figure class="frame frame--9x16">
-                        <img src="https://i.ytimg.com/vi/CK3VOyvkcro/hqdefault.jpg" alt="Story em destaque da Loja Sora, gravado por Flaviana Marafoni" loading="lazy"
+                        <img src="https://i.ytimg.com/vi/CK3VOyvkcro/hqdefault.jpg"
+                          alt="Story em destaque da Loja Sora, gravado por Flaviana Marafoni" loading="lazy"
                           decoding="async">
                         <span class="reel__play" aria-hidden="true"><svg class="ico">
                             <use href="#i-play" />
@@ -1266,8 +1171,9 @@
                     <a class="reel__link" href="https://youtube.com/shorts/_yk5HYfRLAk" target="_blank" rel="noopener"
                       data-yt="_yk5HYfRLAk">
                       <figure class="frame frame--9x16">
-                        <img src="https://i.ytimg.com/vi/_yk5HYfRLAk/hqdefault.jpg" alt="Story em destaque do Superatacado Sempre Tem, gravado por Flaviana Marafoni" loading="lazy"
-                          decoding="async">
+                        <img src="https://i.ytimg.com/vi/_yk5HYfRLAk/hqdefault.jpg"
+                          alt="Story em destaque do Superatacado Sempre Tem, gravado por Flaviana Marafoni"
+                          loading="lazy" decoding="async">
                         <span class="reel__play" aria-hidden="true"><svg class="ico">
                             <use href="#i-play" />
                           </svg></span>
@@ -1306,8 +1212,7 @@
 
                 <div class="fan__hand fan__hand--4" data-fan-hand data-trilho data-trilho-rotulo="Casa e decoração">
                   <article class="fan__card">
-                    <a class="card__ig-top" href="https://instagram.com/colormaq" target="_blank"
-                      rel="noopener">
+                    <a class="card__ig-top" href="https://instagram.com/colormaq" target="_blank" rel="noopener">
                       <svg class="ico" aria-hidden="true">
                         <use href="#i-instagram" />
                       </svg>Ver vídeo no Instagram
@@ -1315,7 +1220,8 @@
                     <a class="reel__link" href="https://youtube.com/shorts/ForA7T_2So4" target="_blank" rel="noopener"
                       data-yt="ForA7T_2So4">
                       <figure class="frame frame--9x16">
-                        <img src="https://i.ytimg.com/vi/ForA7T_2So4/hqdefault.jpg" alt="Reels de casa e decoração para Colormaq, gravado por Flaviana Marafoni" loading="lazy"
+                        <img src="https://i.ytimg.com/vi/ForA7T_2So4/hqdefault.jpg"
+                          alt="Reels de casa e decoração para Colormaq, gravado por Flaviana Marafoni" loading="lazy"
                           decoding="async">
                         <span class="reel__play" aria-hidden="true"><svg class="ico">
                             <use href="#i-play" />
@@ -1340,7 +1246,8 @@
                     <a class="reel__link" href="https://youtube.com/shorts/wipfaFldFos" target="_blank" rel="noopener"
                       data-yt="wipfaFldFos">
                       <figure class="frame frame--9x16">
-                        <img src="https://i.ytimg.com/vi/wipfaFldFos/hqdefault.jpg" alt="Reels de móveis para Loja Litoral Móveis, produzido por Flaviana Marafoni" loading="lazy"
+                        <img src="https://i.ytimg.com/vi/wipfaFldFos/hqdefault.jpg"
+                          alt="Reels de móveis para Loja Litoral Móveis, produzido por Flaviana Marafoni" loading="lazy"
                           decoding="async">
                         <span class="reel__play" aria-hidden="true"><svg class="ico">
                             <use href="#i-play" />
@@ -1366,7 +1273,8 @@
                     <a class="reel__link" href="https://youtube.com/shorts/EWP8EFtG_f0" target="_blank" rel="noopener"
                       data-yt="EWP8EFtG_f0">
                       <figure class="frame frame--9x16">
-                        <img src="https://i.ytimg.com/vi/EWP8EFtG_f0/hqdefault.jpg" alt="Reels de decoração para Moderna Mobília, gravado por Flaviana Marafoni" loading="lazy"
+                        <img src="https://i.ytimg.com/vi/EWP8EFtG_f0/hqdefault.jpg"
+                          alt="Reels de decoração para Moderna Mobília, gravado por Flaviana Marafoni" loading="lazy"
                           decoding="async">
                         <span class="reel__play" aria-hidden="true"><svg class="ico">
                             <use href="#i-play" />
@@ -1392,8 +1300,9 @@
                     <a class="reel__link" href="https://youtube.com/shorts/fafY9sD0O-s" target="_blank" rel="noopener"
                       data-yt="fafY9sD0O-s">
                       <figure class="frame frame--9x16">
-                        <img src="https://i.ytimg.com/vi/fafY9sD0O-s/hqdefault.jpg" alt="Reels de casa e lifestyle para Momo Lifestyle, produzido por Flaviana Marafoni" loading="lazy"
-                          decoding="async">
+                        <img src="https://i.ytimg.com/vi/fafY9sD0O-s/hqdefault.jpg"
+                          alt="Reels de casa e lifestyle para Momo Lifestyle, produzido por Flaviana Marafoni"
+                          loading="lazy" decoding="async">
                         <span class="reel__play" aria-hidden="true"><svg class="ico">
                             <use href="#i-play" />
                           </svg></span>
@@ -1442,7 +1351,8 @@
                     <a class="reel__link" href="https://youtube.com/shorts/LXC1OcRu6No" target="_blank" rel="noopener"
                       data-yt="LXC1OcRu6No">
                       <figure class="frame frame--9x16">
-                        <img src="https://i.ytimg.com/vi/LXC1OcRu6No/hqdefault.jpg" alt="Reels de moda e beleza para Ilumina Beauté, gravado por Flaviana Marafoni" loading="lazy"
+                        <img src="https://i.ytimg.com/vi/LXC1OcRu6No/hqdefault.jpg"
+                          alt="Reels de moda e beleza para Ilumina Beauté, gravado por Flaviana Marafoni" loading="lazy"
                           decoding="async">
                         <span class="reel__play" aria-hidden="true"><svg class="ico">
                             <use href="#i-play" />
@@ -1468,7 +1378,8 @@
                     <a class="reel__link" href="https://youtube.com/shorts/DFi7rYLA5Iw" target="_blank" rel="noopener"
                       data-yt="DFi7rYLA5Iw">
                       <figure class="frame frame--9x16">
-                        <img src="https://i.ytimg.com/vi/DFi7rYLA5Iw/hqdefault.jpg" alt="Reels de moda para Constace Marataízes, produzido por Flaviana Marafoni" loading="lazy"
+                        <img src="https://i.ytimg.com/vi/DFi7rYLA5Iw/hqdefault.jpg"
+                          alt="Reels de moda para Constace Marataízes, produzido por Flaviana Marafoni" loading="lazy"
                           decoding="async">
                         <span class="reel__play" aria-hidden="true"><svg class="ico">
                             <use href="#i-play" />
@@ -1494,7 +1405,8 @@
                     <a class="reel__link" href="https://youtube.com/shorts/bkBbyXzgzg0" target="_blank" rel="noopener"
                       data-yt="bkBbyXzgzg0">
                       <figure class="frame frame--9x16">
-                        <img src="https://i.ytimg.com/vi/bkBbyXzgzg0/hqdefault.jpg" alt="Reels de moda para Use Bob, gravado por Flaviana Marafoni" loading="lazy"
+                        <img src="https://i.ytimg.com/vi/bkBbyXzgzg0/hqdefault.jpg"
+                          alt="Reels de moda para Use Bob, gravado por Flaviana Marafoni" loading="lazy"
                           decoding="async">
                         <span class="reel__play" aria-hidden="true"><svg class="ico">
                             <use href="#i-play" />
@@ -1520,7 +1432,8 @@
                     <a class="reel__link" href="https://youtube.com/shorts/UtVIyjw2qZQ" target="_blank" rel="noopener"
                       data-yt="UtVIyjw2qZQ">
                       <figure class="frame frame--9x16">
-                        <img src="https://i.ytimg.com/vi/UtVIyjw2qZQ/hqdefault.jpg" alt="Reels de beleza para Lola Cosmetics, produzido por Flaviana Marafoni" loading="lazy"
+                        <img src="https://i.ytimg.com/vi/UtVIyjw2qZQ/hqdefault.jpg"
+                          alt="Reels de beleza para Lola Cosmetics, produzido por Flaviana Marafoni" loading="lazy"
                           decoding="async">
                         <span class="reel__play" aria-hidden="true"><svg class="ico">
                             <use href="#i-play" />
@@ -1559,7 +1472,8 @@
             <div class="fan__stage">
               <div class="fan__deck">
 
-                <div class="fan__hand fan__hand--4" data-fan-hand data-trilho data-trilho-rotulo="Gastronomia e lifestyle">
+                <div class="fan__hand fan__hand--4" data-fan-hand data-trilho
+                  data-trilho-rotulo="Gastronomia e lifestyle">
                   <article class="fan__card">
                     <a class="card__ig-top" href="https://www.instagram.com/reel/DMoLswTyOEM/" target="_blank"
                       rel="noopener">
@@ -1570,8 +1484,9 @@
                     <a class="reel__link" href="https://youtube.com/shorts/MHINHisSVoE" target="_blank" rel="noopener"
                       data-yt="MHINHisSVoE">
                       <figure class="frame frame--9x16">
-                        <img src="https://i.ytimg.com/vi/MHINHisSVoE/hqdefault.jpg" alt="Reels de gastronomia para Jessé Éden Brasa e Sabor, gravado por Flaviana Marafoni" loading="lazy"
-                          decoding="async">
+                        <img src="https://i.ytimg.com/vi/MHINHisSVoE/hqdefault.jpg"
+                          alt="Reels de gastronomia para Jessé Éden Brasa e Sabor, gravado por Flaviana Marafoni"
+                          loading="lazy" decoding="async">
                         <span class="reel__play" aria-hidden="true"><svg class="ico">
                             <use href="#i-play" />
                           </svg></span>
@@ -1596,8 +1511,9 @@
                     <a class="reel__link" href="https://youtube.com/shorts/OYxvglZXmLg" target="_blank" rel="noopener"
                       data-yt="OYxvglZXmLg">
                       <figure class="frame frame--9x16">
-                        <img src="https://i.ytimg.com/vi/OYxvglZXmLg/hqdefault.jpg" alt="Reels de gastronomia para Banzai Sushi Marataízes, produzido por Flaviana Marafoni" loading="lazy"
-                          decoding="async">
+                        <img src="https://i.ytimg.com/vi/OYxvglZXmLg/hqdefault.jpg"
+                          alt="Reels de gastronomia para Banzai Sushi Marataízes, produzido por Flaviana Marafoni"
+                          loading="lazy" decoding="async">
                         <span class="reel__play" aria-hidden="true"><svg class="ico">
                             <use href="#i-play" />
                           </svg></span>
@@ -1622,7 +1538,8 @@
                     <a class="reel__link" href="https://youtube.com/shorts/a9HJ1useZhA" target="_blank" rel="noopener"
                       data-yt="a9HJ1useZhA">
                       <figure class="frame frame--9x16">
-                        <img src="https://i.ytimg.com/vi/a9HJ1useZhA/hqdefault.jpg" alt="Reels de lifestyle para Sítio Mardegan, gravado por Flaviana Marafoni" loading="lazy"
+                        <img src="https://i.ytimg.com/vi/a9HJ1useZhA/hqdefault.jpg"
+                          alt="Reels de lifestyle para Sítio Mardegan, gravado por Flaviana Marafoni" loading="lazy"
                           decoding="async">
                         <span class="reel__play" aria-hidden="true"><svg class="ico">
                             <use href="#i-play" />
@@ -1648,7 +1565,8 @@
                     <a class="reel__link" href="https://youtube.com/shorts/LbNIOCFwDs0" target="_blank" rel="noopener"
                       data-yt="LbNIOCFwDs0">
                       <figure class="frame frame--9x16">
-                        <img src="https://i.ytimg.com/vi/LbNIOCFwDs0/hqdefault.jpg" alt="Vlog Tijolinho por Tijolinho, produzido por Flaviana Marafoni" loading="lazy"
+                        <img src="https://i.ytimg.com/vi/LbNIOCFwDs0/hqdefault.jpg"
+                          alt="Vlog Tijolinho por Tijolinho, produzido por Flaviana Marafoni" loading="lazy"
                           decoding="async">
                         <span class="reel__play" aria-hidden="true"><svg class="ico">
                             <use href="#i-play" />
@@ -1854,8 +1772,6 @@
           </div>
         </div>
 
-        <!-- Cases sem foto: o numero e a prova. Cada card abre a memoria de calculo
-         no clique (<details> nativo - funciona sem JS e com teclado). -->
         <div class="cases" data-trilho data-trilho-rotulo="Cases com cupom rastreado">
 
           <details class="case">
@@ -1950,12 +1866,6 @@
 
         </div>
 
-        <!-- ---- FEEDBACKS ----
-         O midia kit traz os prints das conversas, mas sem texto transcrito.
-         Duas coisas para preencher em cada card:
-           1) o <img> do print  -> img/feedbacks/*.jpg (comentado abaixo)
-           2) a <blockquote>    -> a frase transcrita do print
-         Se preferir mostrar so o print, apague a <blockquote> e mantenha a figure. -->
         <div class="feedbacks">
           <h3 class="feedbacks__title rail-alvo" id="cases-feedbacks">Feedbacks das marcas</h3>
           <p class="feedbacks__lede">O que chega no direct depois que a campanha vai ao ar.</p>
@@ -1966,7 +1876,8 @@
               <svg class="feedback__ico" aria-hidden="true">
                 <use href="#i-quote" />
               </svg>
-              <blockquote>&ldquo;Nossa direção nos deu um retorno e amaram o seu conteúdo! Você é DEMAIS!&rdquo;</blockquote>
+              <blockquote>&ldquo;Nossa direção nos deu um retorno e amaram o seu conteúdo! Você é DEMAIS!&rdquo;
+              </blockquote>
               <div class="frame frame--print" data-frame="img/feedback-ilumina.jpg">
                 <a class="frame__zoom" href="img/feedback-ilumina.jpg" data-fancybox="prints"
                   data-caption="@iluminabeaute, Moda e Beleza" aria-label="Ampliar print de @iluminabeaute">
@@ -1984,7 +1895,8 @@
               <svg class="feedback__ico" aria-hidden="true">
                 <use href="#i-quote" />
               </svg>
-              <blockquote>&ldquo;Adoramos o seu vídeo! Queríamos saber se podemos compartilhá-lo em nossas outras redes sociais.&rdquo;</blockquote>
+              <blockquote>&ldquo;Adoramos o seu vídeo! Queríamos saber se podemos compartilhá-lo em nossas outras redes
+                sociais.&rdquo;</blockquote>
               <div class="frame frame--print" data-frame="img/feedback-momo.webp">
                 <a class="frame__zoom" href="img/feedback-momo.webp" data-fancybox="prints"
                   data-caption="@momolifestylebr, Casa e Decoração" aria-label="Ampliar print de @momolifestylebr">
@@ -2038,10 +1950,12 @@
               <svg class="feedback__ico" aria-hidden="true">
                 <use href="#i-quote" />
               </svg>
-              <blockquote>&ldquo;Nós que agradecemos pelo trabalho incrível, pode ter certeza que iremos fechar mais trabalhos futuramente!&rdquo;</blockquote>
+              <blockquote>&ldquo;Nós que agradecemos pelo trabalho incrível, pode ter certeza que iremos fechar mais
+                trabalhos futuramente!&rdquo;</blockquote>
               <div class="frame frame--print" data-frame="img/feedback-sempre-tem.jpeg">
                 <a class="frame__zoom" href="img/feedback-sempre-tem.jpeg" data-fancybox="prints"
-                  data-caption="@superatacado.sempretem, Gastronomia e Lifestyle" aria-label="Ampliar print de @superatacado.sempretem">
+                  data-caption="@superatacado.sempretem, Gastronomia e Lifestyle"
+                  aria-label="Ampliar print de @superatacado.sempretem">
                   <img src="img/feedback-sempre-tem.jpeg" alt="Print do feedback de @superatacado.sempretem" width="900"
                     height="600">
                   <span class="frame__zoom-ico"><svg class="ico" aria-hidden="true">
@@ -2060,8 +1974,7 @@
               <div class="frame frame--print" data-frame="img/feedback-sora.jpeg">
                 <a class="frame__zoom" href="img/feedback-sora.jpeg" data-fancybox="prints"
                   data-caption="@loja_sora, Moda Infantil" aria-label="Ampliar print de @loja_sora">
-                  <img src="img/feedback-sora.jpeg" alt="Print do feedback de @loja_sora" width="900"
-                    height="600">
+                  <img src="img/feedback-sora.jpeg" alt="Print do feedback de @loja_sora" width="900" height="600">
                   <span class="frame__zoom-ico"><svg class="ico" aria-hidden="true">
                       <use href="#i-zoom" />
                     </svg>Ver print</span>
@@ -2084,9 +1997,6 @@
           <p class="section__lede">De supermercado de bairro a Shein, L&rsquo;Oréal e Dove: marca local e marca
             nacional confiam no meu conteúdo. 91 delas estão aqui.</p>
         </div>
-        <!-- No desktop e o campo de chips que sempre foi. No mobile ele vira um
-             CAMPO DEITADO: quatro fileiras que correm para o lado em vez de 36
-             fileiras empilhadas. Nenhuma marca sai da pagina - so muda o eixo. -->
         <ul class="chips" data-campo>
           <li class="chip">@abriudormiu</li>
           <li class="chip">@acaidochefmarataizes</li>
@@ -2193,14 +2103,6 @@
           <p class="kicker">07 · Dúvidas</p>
           <h2>Antes de me <em>chamar</em>.</h2>
         </div>
-
-        <!-- ATENCAO ao mexer aqui: estas perguntas estao espelhadas no FAQPage
-             (JSON-LD, no <head>). O Google so mostra o rich result de FAQ se a
-             pergunta E a resposta estiverem VISIVEIS na pagina, com o mesmo texto.
-             Editou aqui, edita la tambem - e vice-versa.
-             As quatro primeiras existem porque sao exatamente o que a marca
-             digita no Google: "quanto custa publi com influenciador",
-             "influenciadora digital em Marataizes", "influenciadora de decoracao ES". -->
 
         <details data-duvida="precos">
           <summary>Quanto custa uma publi com a Flaviana Marafoni?<svg class="ico ico--toggle" aria-hidden="true">
@@ -2329,11 +2231,6 @@
   </main>
 
   <footer class="footer">
-    <!-- ---- NAP (nome, endereco, telefone) ----
-         Bloco curto de proposito, mas obrigatorio para busca local: o Google
-         cruza este texto com o LocalBusiness do JSON-LD e com o Perfil da
-         Empresa. Os tres dados precisam bater LETRA POR LETRA nos tres lugares
-         (aqui, no JSON-LD e no Google Meu Negocio) - divergiu, perde forca. -->
     <address class="footer__nap">
       <strong>Flaviana Marafoni</strong>, Influenciadora Digital e Creator de Conteúdo<br>
       Marataízes, Espírito Santo, Brasil · atende Marataízes, Itapemirim, Presidente Kennedy, Piúma, Anchieta, Iconha,
@@ -2345,10 +2242,11 @@
     <div class="container footer__inner">
       <p class="footer__meta">
         <span class="footer__clock">Marataízes/ES <time data-relogio>--:--:--</time></span>
-        <!-- Este <span> nao e decorativo: o .footer__meta e flex-column, entao cada
-             trecho solto de texto virava um item anonimo e quebrava em tres linhas
-             (o "©", o ano e o nome, cada um embaixo do outro). Envolvido, e um item so. -->
         <span>© <span data-ano></span> Flaviana Marafoni · Todos os direitos reservados</span>
+        <span class="footer__legal">
+          <a href="privacidade.html">Política de Privacidade</a> ·
+          <button class="footer__prefs" type="button" data-cookies-abrir>Preferências de cookies</button>
+        </span>
       </p>
       <ul class="social">
         <li><a href="https://instagram.com/flavianamarafoni" target="_blank" rel="noopener"><svg class="ico"
@@ -2365,9 +2263,6 @@
       </ul>
     </div>
 
-    <!-- ---- Credito de autoria ----
-         Linha discreta, na mesma calha do rodape. rel="noopener" pelo target,
-         e "author" porque e literalmente isso: o link aponta para quem fez. -->
     <p class="credit">
       <a class="credit__link" href="https://portfolio-vicenzo-prucoli.vercel.app/" target="_blank"
         rel="noopener author">
@@ -2388,11 +2283,20 @@
     </svg>Quero um orçamento
   </a>
 
-  <!-- ============ SUMÁRIO EM FOLHA (mobile / tablet) ============
-     Mesma lista da .rail, clonada pelo script - a régua continua sendo a
-     unica fonte do sumario, entao nao existe risco de as duas divergirem.
-     Entra deslizando pela esquerda, na mesma direcao em que a regua vive
-     no desktop. Fica vazia ate o script rodar; por isso nasce [hidden]. -->
+  <!-- Aviso de cookies (LGPD). hidden por padrao: o script decide se mostra. -->
+  <div class="cookies" role="dialog" aria-labelledby="cookies-titulo" data-cookies hidden>
+    <p class="cookies__titulo" id="cookies-titulo">Cookies por aqui</p>
+    <p class="cookies__texto">
+      Uso o Google Analytics para saber quantas pessoas visitam o site e de onde elas vêm. Nada disso identifica você
+      pessoalmente. Se preferir, pode recusar, e o site funciona igual.
+      <a href="privacidade.html">Ver a política</a>.
+    </p>
+    <div class="cookies__acoes">
+      <button class="btn btn--sm" type="button" data-cookies-aceitar>Aceitar</button>
+      <button class="btn btn--sm btn--ghost" type="button" data-cookies-recusar>Recusar</button>
+    </div>
+  </div>
+
   <div class="folha" id="sumario-folha" data-sumario hidden>
     <button class="folha__scrim" type="button" aria-label="Fechar sumário" data-sumario-fechar></button>
     <div class="folha__painel" role="dialog" aria-modal="true" aria-label="Sumário da página">
