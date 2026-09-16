@@ -7,3 +7,7 @@ docs/
 
 # Config do Apache local: na Vercel quem manda e o vercel.json.
 .htaccess
+
+# Retrato antigo e os derivados dele. Ficam no repositorio como historico,
+# mas nao vao pro ar: sao ~2,8 MB que nenhuma pagina referencia.
+img/old-imagens/
