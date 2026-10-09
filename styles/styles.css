@@ -1061,7 +1061,7 @@ body.is-intro {
   margin: 0;
   font-family: var(--font-display);
   font-weight: 300;
-  /* trava o tamanho pelo container: "+300 mil" nunca quebra em duas linhas */
+  /* trava o tamanho pelo container: "+5 milhões" nunca quebra em duas linhas */
   font-size: clamp(1.5rem, 1.05rem + 1.5vw, 2.4rem);
   line-height: 1;
   letter-spacing: -0.035em;
