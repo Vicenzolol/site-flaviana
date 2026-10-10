@@ -99,7 +99,8 @@
     [".reelgroup__head", ":children"],
     [".cards", ".card"],
     [".ticks", "li"],
-    [".pricelist", ":children"],
+    [".orcar", "li"],
+    [".permuta", ":children"],
     [".extras__grid", ":children"],
     [".reach", ".reach__title"],
     [".reach__grid", ".reach__item"],
@@ -1018,8 +1019,8 @@
   );
   iniciarAbas(
     paineisDe(document.querySelector("#investimento .cards")),
-    "Formatos e preços",
-    "Toque para ver cada formato e preço",
+    "Formatos",
+    "Toque para ver cada formato",
   );
 
   function abrirAbaDe(alvo) {
@@ -1070,7 +1071,7 @@
 
     var ASSUNTOS = [
       ["*", "Todas"],
-      ["precos", "Preços"],
+      ["precos", "Orçamento e permuta"],
       ["atendimento", "Como funciona"],
       ["perfil", "Perfil"],
     ];

@@ -33,7 +33,7 @@ parceiras, investimento, FAQ e contato.
 O site usa **Google Analytics 4** (`G-08W7F5KQCJ`) em modo de consentimento:
 nenhum cookie é gravado antes do aceite no banner, e recusar realmente desliga
 a coleta. São 17 eventos personalizados, do clique no WhatsApp até a rolagem
-que alcança a tabela de preços.
+que alcança a seção de investimento.
 
 O código está em `scripts/script.js`, no bloco `medicao: eventos enviados ao
 Analytics`, com um comentário em cada evento explicando o que ele responde.

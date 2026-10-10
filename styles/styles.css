@@ -1516,53 +1516,54 @@ div.prosa__folha > p:last-child {
   height: 0.85em;
 }
 
-.pricelist {
+/* Cada linha é um pedido de orçamento: o link abre o WhatsApp com o formato já escrito. */
+.orcar {
+  list-style: none;
   margin: 0;
-  padding-top: 1rem;
+  padding: 1rem 0 0;
   border-top: 1px solid var(--rule);
 }
 /* Mesma logica do .datalist: a linha sangra ate a borda do card. */
-.pricelist > div {
+.orcar a {
   position: relative;
   display: flex;
   justify-content: space-between;
-  align-items: baseline;
+  align-items: center;
   gap: 1rem;
+  min-height: 44px;
   padding: 0.45rem 20px;
   margin-inline: -20px;
-  transition: background-color var(--dur-2) var(--ease);
-}
-.pricelist dt {
   color: var(--muted);
   font-size: 0.75rem;
   line-height: 1.4;
-  transition: color var(--dur-2) var(--ease);
-}
-.pricelist dd {
-  margin: 0;
-  font-family: var(--font-display);
-  font-weight: 300;
-  font-size: 1.35rem;
-  letter-spacing: -0.03em;
-  white-space: nowrap;
+  text-decoration: none;
   transition:
-    color var(--dur-2) var(--ease),
-    transform var(--dur-2) var(--ease-out);
+    background-color var(--dur-2) var(--ease),
+    color var(--dur-2) var(--ease);
 }
-@media (hover: hover) {
-  .pricelist > div:hover {
-    background: var(--alt);
-  }
-  .pricelist > div:hover dt {
-    color: var(--ink);
-  }
-  .pricelist > div:hover dd {
-    color: var(--mauve);
-    transform: translateX(-3px);
-  }
+.orcar__acao {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  flex: none;
+  font-family: var(--font-ui);
+  font-size: 0.6875rem;
+  text-transform: uppercase;
+  letter-spacing: 0.13em;
+  color: var(--mauve);
+  transition: transform var(--dur-2) var(--ease-out);
+}
+.orcar a:hover,
+.orcar a:focus-visible {
+  background: var(--alt);
+  color: var(--ink);
+}
+.orcar a:hover .orcar__acao,
+.orcar a:focus-visible .orcar__acao {
+  transform: translateX(-3px);
 }
 
-/* Card em destaque: texto à esquerda, preços à direita */
+/* Card em destaque: texto à esquerda, pedidos de orçamento à direita */
 @media (min-width: 860px) {
   .card--featured {
     width: min(100%, 880px);
@@ -1593,28 +1594,52 @@ div.prosa__folha > p:last-child {
   .card--featured > .ticks {
     margin-bottom: 0;
   }
-  .card--featured > .pricelist {
+  .card--featured > .orcar {
     grid-column: 2;
     grid-row: 1 / -1;
-    align-self: start;
+    align-self: center;
     border-top: 0;
     padding-top: 0;
     border-left: 1px solid var(--rule);
     padding-left: clamp(2rem, 4vw, 3rem);
   }
-  .card--featured .pricelist > div {
-    padding: 0.6rem 0.75rem;
+  .card--featured .orcar a {
+    padding: 0.85rem 0.75rem;
     margin-inline: -0.75rem;
-  }
-  .card--featured .pricelist > div + div {
-    border-top: 1px solid var(--rule);
-  }
-  .card--featured .pricelist dt {
     font-size: 0.8125rem;
   }
-  .card--featured .pricelist dd {
-    font-size: 1.5rem;
+  .card--featured .orcar li + li a {
+    border-top: 1px solid var(--rule);
   }
+}
+
+/* Permuta em destaque, entre os formatos e as outras opções */
+.permuta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.25rem 2.5rem;
+  margin-top: clamp(2rem, 4vw, 3rem);
+  padding: clamp(20px, 2.4vw, 30px);
+  background: var(--surface);
+  border: 1px solid var(--mauve);
+}
+.permuta .kicker {
+  margin-bottom: 0.6rem;
+}
+.permuta h3 {
+  font-size: 1.35rem;
+  margin-bottom: 0.5rem;
+}
+.permuta p:not(.kicker) {
+  color: var(--muted);
+  font-size: 0.8125rem;
+  max-width: 60ch;
+  margin: 0;
+}
+.permuta .btn {
+  flex: none;
 }
 
 .extras {
